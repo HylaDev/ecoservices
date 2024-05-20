@@ -1,0 +1,18 @@
+/******General*******/
+body{
+ margin: 0;
+ padding: 0;   
+}
+
+.my-bg-primary{
+    background-color: #507b00 !important;
+    color: #fff !important;
+}
+.text-white{
+    color: #fff !important;
+}
+
+nav a{
+    color: #fff !important;
+}
+
