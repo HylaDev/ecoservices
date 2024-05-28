@@ -1,18 +1,196 @@
-/******General*******/
+/*** General Start #558900***/
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --primary-color:#4caf50;
+    --secondary-color:#006769;
+    --white-color:#ffffff;
+    --black-color:#000000;
+}
 body{
- margin: 0;
- padding: 0;   
+    font-family: "MuseoModerno", sans-serif;
+}
+a{
+    text-decoration: none;
+}
+.bg-white{
+    background-color: var(--white-color);
+}
+.m-bg-primary{
+    background-color: var(--primary-color);
+}
+.m-bg-secondary{
+    background-color: var(--secondary-color);
+}
+.text-green{
+    color: var(--primary-color);
+}
+.text-secon{
+    color: var(--secondary-color);
+}
+.border-secondary{
+    color: var(--secondary-color) !important;
+}
+/*** General End ***/
+
+/*** Spinner Start ***/
+#spinner {
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity .8s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+ }
+
+ #spinner.show {
+     transition: opacity .8s ease-out, visibility 0s linear .0s;
+     visibility: visible;
+     opacity: 1;
+ }
+
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    z-index: 99;
+}
+/*** Spinner End ***/
+
+/*** Topbar Start ***/
+.fixed-top {
+    transition: 0.5s;
+    background: var(--white-color);
+    border: 0;
+}
+.fixed-top.blur{
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background-color: transparent !important;
 }
 
-.my-bg-primary{
-    background-color: #507b00 !important;
-    color: #fff !important;
-}
-.text-white{
-    color: #fff !important;
+.topbar {
+    padding: 20px;
 }
 
-nav a{
-    color: #fff !important;
+.topbar .top-info {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
 }
+
+.topbar .top-link {
+    font-size: 15px;
+    line-height: 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar .top-link a {
+    letter-spacing: 1px;
+}
+
+.topbar .top-link a small:hover {
+    color: var(--secondary-color) !important;
+    transition: 0.5s;
+}
+
+.topbar .top-info small a:hover {
+    color: var(--secondary-color) !important;
+    transition: 0.5s;
+}
+.topbar .top-info small i:hover {
+    color: var(--secondary-color) !important;
+    transition: 0.5s;
+}
+/*** Topbar End ***/
+
+/*** Navbar Start ***/
+.navbar .navbar-nav .nav-link {
+    font-size: 18px;
+    transition: .5s;
+    color: var(--primary-color)
+}
+
+.navbar .navbar-nav a:hover {
+    color: var(--secondary-color) !important;
+    transition: 0.5s;
+}
+
+
+@media (max-width: 1200px) {
+    .navbar{
+        margin: 3%;
+    }
+    .collapse{
+        background-color: var(--white-color) !important;
+    }
+}
+
+#searchModal .modal-content {
+    background: rgba(255, 255, 255, .8);
+}
+/*** Navbar End ***/
+
+/*** Hero Header ***/
+.hero-header {
+    background: url(../assets/img/recy.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    background: linear-gradient(rgba(255, 181, 36, 0.7), rgba(255, 181, 36, 0.7));
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 28px;
+    height: 38px;
+    border-radius: 48px;
+    border: 1px solid var(--white-color);
+    background: var(--secondary-color);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-next {
+    margin-right: 20px;
+}
+
+.carousel-control-prev {
+    margin-left: 20px;
+}
+
+@media (min-width: 992px) {
+    .hero-header
+     {
+        margin-top: 152px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-header{
+        margin-top: 97px !important;
+    }
+}
+/*** Hero Header end ***/
+
 
