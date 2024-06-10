@@ -4,37 +4,225 @@
 
 {% block content %}
 <!-- Hero Start -->
-        <div class="container-fluid py-5 mb-5 hero-header">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-md-12 col-lg-7">
-                        <h4 class="mb-3 text-secon">100% Recyclable</h4>
-                        <h1 class="mb-5 display-3 text-secon">Produits de qualité et recyclable.</h1>
-                        
-                    </div>
-                    <div class="col-md-12 col-lg-5">
-                        <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <div class="carousel-item active rounded">
-                                    <img src="{{ asset('assets/img/hero-1.jpeg') }}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
-                                </div>
-                                <div class="carousel-item rounded">
-                                    <img src="{{ asset('assets/img/hero-2.jpeg') }}" class="img-fluid w-100 h-100 rounded" alt="Second slide">
-                                </div>
+    <div class="container-fluid py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-12 col-lg-7">
+                    <h4 class="mb-3 text-secon">100% Recyclable</h4>
+                    <h1 class="mb-5 display-3 text-secon">Produits de qualité et recyclable.</h1>
+                    
+                </div>
+                <div class="col-md-12 col-lg-5">
+                    <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active rounded">
+                                <img src="{{ asset('assets/img/hero-1.jpeg') }}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
                             </div>
-                            <button class="carousel-control-prev " type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden ">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+                            <div class="carousel-item rounded">
+                                <img src="{{ asset('assets/img/hero-2.jpeg') }}" class="img-fluid w-100 h-100 rounded" alt="Second slide">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev " type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden ">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Hero End -->
+
+<!--Specifications Start -->
+    <div id="specifications" class="container-fluid py-4">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class=" text-center m-bg-secondary p-4">
+                        <div class="specifications-icon mb-5 mx-auto">
+                            <i class="text-white fas fa-car-side fa-3x"></i>
+                        </div>
+                        <div class="specifications-content text-white text-center">
+                            <h5>Livraison gratuite</h5>
+                            <p class="mb-0">Gratuite à partir de 50€ d'achat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class=" text-center m-bg-secondary p-4">
+                        <div class="specifications-icon mb-5 mx-auto">
+                            <i class="text-white fas fa-user-shield fa-3x"></i>
+                        </div>
+                        <div class="specifications-content text-white text-center">
+                            <h5>Paiement sécurisé</h5>
+                            <p class="mb-0">Payez en toute sécurité en ligne</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class=" text-center m-bg-secondary p-4">
+                        <div class="specifications-icon mb-5 mx-auto">
+                            <i class="text-white fas fa-exchange-alt fa-3x"></i>
+                        </div>
+                        <div class="specifications-content text-white text-center">
+                            <h5>Retour sous 30 jours</h5>
+                            <p class="mb-0">Garantie de paiement de 30 jours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class=" text-center m-bg-secondary p-4">
+                        <div class="specifications-icon mb-5 mx-auto">
+                            <i class="text-white fa fa-phone-alt fa-3x"></i>
+                        </div>
+                        <div class="specifications-content text-white text-center">
+                            <h5>Assistance 24/7</h5>
+                            <p class="mb-0">Une assistance toujours rapide</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<!-- Specifications End -->
+
+<!-- Bestsaler Product Start -->
+    <div class="container-fluid py-3">
+        <div class="container py-3">
+            <div class="text-center mx-auto mb-5">
+                <h1 class="display-4">Quelques Produits</h1>
+                <p>Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-bag me-2 text-green"></i> Ajouter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-bag me-2 text-green"></i> Ajouter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-bag me-2 text-green"></i> Ajouter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-bag me-2 text-green"></i> Ajouter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-bag me-2 text-green"></i> Ajouter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-bag me-2 text-green"></i> Ajouter</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Hero End -->
+    </div>
+<!-- Bestsaler Product End -->
     
 {% endblock %}
