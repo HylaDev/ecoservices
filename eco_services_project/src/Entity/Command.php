@@ -16,9 +16,6 @@ class Command
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $user_id = null;
-
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
@@ -33,6 +30,14 @@ class Command
      */
     #[ORM\OneToMany(targetEntity: CommandDetail::class, mappedBy: 'command_id', orphanRemoval: true)]
     private Collection $commandDetails;
+
+    #[ORM\ManyToOne(inversedBy: 'commands')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Users $cmduser = null;
+
+    // #[ORM\ManyToOne(inversedBy: 'commands')]
+    // #[ORM\JoinColumn(nullable: false)]
+    // private ?Users $user_id = null;
 
     public function __construct()
     {
@@ -118,6 +123,18 @@ class Command
                 $commandDetail->setCommandId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCmduser(): ?Users
+    {
+        return $this->cmduser;
+    }
+
+    public function setCmduser(?Users $cmduser): static
+    {
+        $this->cmduser = $cmduser;
 
         return $this;
     }

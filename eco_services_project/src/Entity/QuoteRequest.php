@@ -16,10 +16,6 @@ class QuoteRequest
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'quoteRequests')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Users $user_id = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
@@ -34,6 +30,14 @@ class QuoteRequest
      */
     #[ORM\OneToMany(targetEntity: QuoteRequestDetail::class, mappedBy: 'request_id')]
     private Collection $quoteRequestDetails;
+
+    #[ORM\ManyToOne(inversedBy: 'quoteRequests')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Users $qruser = null;
+
+    // #[ORM\ManyToOne(inversedBy: 'quoteRequests')]
+    // #[ORM\JoinColumn(nullable: false)]
+    // private ?Users $user_id = null;
 
     public function __construct()
     {
@@ -119,6 +123,18 @@ class QuoteRequest
                 $quoteRequestDetail->setRequestId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getQruser(): ?Users
+    {
+        return $this->qruser;
+    }
+
+    public function setQruser(?Users $qruser): static
+    {
+        $this->qruser = $qruser;
 
         return $this;
     }
