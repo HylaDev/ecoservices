@@ -25,7 +25,7 @@ class ProductCategory
     /**
      * @var Collection<int, Product>
      */
-    #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'category_id')]
+    #[ORM\OneToMany(targetEntity: Product::class, mappedBy: 'category')]
     private Collection $products;
 
     public function __construct()
@@ -74,7 +74,7 @@ class ProductCategory
     {
         if (!$this->products->contains($product)) {
             $this->products->add($product);
-            $product->setCategoryId($this);
+            $product->setCategory($this);
         }
 
         return $this;
@@ -84,8 +84,8 @@ class ProductCategory
     {
         if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
-            if ($product->getCategoryId() === $this) {
-                $product->setCategoryId(null);
+            if ($product->getCategory() === $this) {
+                $product->setCategory(null);
             }
         }
 

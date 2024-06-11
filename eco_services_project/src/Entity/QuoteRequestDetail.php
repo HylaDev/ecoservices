@@ -13,14 +13,6 @@ class QuoteRequestDetail
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'quoteRequestDetails')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?QuoteRequest $request_id = null;
-
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Product $product_id = null;
-
     #[ORM\Column]
     private ?float $quantity = null;
 
@@ -33,33 +25,17 @@ class QuoteRequestDetail
     #[ORM\Column]
     private ?float $discount = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Product $product = null;
+
+    #[ORM\ManyToOne(inversedBy: 'quoteRequestDetails')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?QuoteRequest $request = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getRequestId(): ?QuoteRequest
-    {
-        return $this->request_id;
-    }
-
-    public function setRequestId(?QuoteRequest $request_id): static
-    {
-        $this->request_id = $request_id;
-
-        return $this;
-    }
-
-    public function getProductId(): ?Product
-    {
-        return $this->product_id;
-    }
-
-    public function setProductId(?Product $product_id): static
-    {
-        $this->product_id = $product_id;
-
-        return $this;
     }
 
     public function getQuantity(): ?float
@@ -106,6 +82,30 @@ class QuoteRequestDetail
     public function setDiscount(float $discount): static
     {
         $this->discount = $discount;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): static
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    public function getRequest(): ?QuoteRequest
+    {
+        return $this->request;
+    }
+
+    public function setRequest(?QuoteRequest $request): static
+    {
+        $this->request = $request;
 
         return $this;
     }

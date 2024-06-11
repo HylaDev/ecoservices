@@ -22,13 +22,13 @@ class CommandDetail
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commandDetails')]
+    #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Product $product_id = null;
+    private ?Product $product = null;
 
     #[ORM\ManyToOne(inversedBy: 'commandDetails')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Command $command_id = null;
+    private ?Command $command = null;
 
     public function getId(): ?int
     {
@@ -71,18 +71,6 @@ class CommandDetail
         return $this;
     }
 
-    public function getProductId(): ?Product
-    {
-        return $this->product_id;
-    }
-
-    public function setProductId(?Product $product_id): static
-    {
-        $this->product_id = $product_id;
-
-        return $this;
-    }
-
     public function getCommandId(): ?Command
     {
         return $this->command_id;
@@ -91,6 +79,30 @@ class CommandDetail
     public function setCommandId(?Command $command_id): static
     {
         $this->command_id = $command_id;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): static
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    public function getCommand(): ?Command
+    {
+        return $this->command;
+    }
+
+    public function setCommand(?Command $command): static
+    {
+        $this->command = $command;
 
         return $this;
     }

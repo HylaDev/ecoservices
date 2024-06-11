@@ -59,6 +59,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: QuoteRequest::class, mappedBy: 'qruser')]
     private Collection $quoteRequests;
 
+    #[ORM\ManyToOne]
+    private ?CustomerRole $customerRole = null;
+
     public function __construct()
     {
         $this->commands = new ArrayCollection();
@@ -244,6 +247,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
                 $quoteRequest->setUserId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCustomerRole(): ?CustomerRole
+    {
+        return $this->customerRole;
+    }
+
+    public function setCustomerRole(?CustomerRole $customerRole): static
+    {
+        $this->customerRole = $customerRole;
 
         return $this;
     }

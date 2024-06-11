@@ -25,19 +25,15 @@ class QuoteRequest
     #[ORM\Column]
     private ?float $total = null;
 
-    /**
-     * @var Collection<int, QuoteRequestDetail>
-     */
-    #[ORM\OneToMany(targetEntity: QuoteRequestDetail::class, mappedBy: 'request_id')]
-    private Collection $quoteRequestDetails;
-
     #[ORM\ManyToOne(inversedBy: 'quoteRequests')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Users $qruser = null;
 
-    // #[ORM\ManyToOne(inversedBy: 'quoteRequests')]
-    // #[ORM\JoinColumn(nullable: false)]
-    // private ?Users $user_id = null;
+    /**
+     * @var Collection<int, QuoteRequestDetail>
+     */
+    #[ORM\OneToMany(targetEntity: QuoteRequestDetail::class, mappedBy: 'request', orphanRemoval: true)]
+    private Collection $quoteRequestDetails;
 
     public function __construct()
     {

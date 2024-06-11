@@ -19,8 +19,6 @@ class Product
     #[ORM\Column(length: 100)]
     private ?string $designation = null;
 
-    #[ORM\Column]
-    private ?int $categorie_id = null;
 
     #[ORM\Column]
     private ?int $price = null;
@@ -28,15 +26,16 @@ class Product
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\ManyToOne(inversedBy: 'products')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?ProductCategory $category_id = null;
 
     /**
      * @var Collection<int, CommandDetail>
      */
     #[ORM\OneToMany(targetEntity: CommandDetail::class, mappedBy: 'product_id')]
     private Collection $commandDetails;
+
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ProductCategory $category = null;
 
     public function __construct()
     {
@@ -60,17 +59,6 @@ class Product
         return $this;
     }
 
-    public function getCategorieId(): ?int
-    {
-        return $this->categorie_id;
-    }
-
-    public function setCategorieId(int $categorie_id): static
-    {
-        $this->categorie_id = $categorie_id;
-
-        return $this;
-    }
 
     public function getPrice(): ?int
     {
@@ -96,17 +84,6 @@ class Product
         return $this;
     }
 
-    public function getCategoryId(): ?ProductCategory
-    {
-        return $this->category_id;
-    }
-
-    public function setCategoryId(?ProductCategory $category_id): static
-    {
-        $this->category_id = $category_id;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, CommandDetail>
@@ -134,6 +111,18 @@ class Product
                 $commandDetail->setProductId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?ProductCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?ProductCategory $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }

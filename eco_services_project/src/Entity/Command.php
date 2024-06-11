@@ -25,15 +25,16 @@ class Command
     #[ORM\Column]
     private ?int $payment_id = null;
 
-    /**
-     * @var Collection<int, CommandDetail>
-     */
-    #[ORM\OneToMany(targetEntity: CommandDetail::class, mappedBy: 'command_id', orphanRemoval: true)]
-    private Collection $commandDetails;
 
     #[ORM\ManyToOne(inversedBy: 'commands')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Users $cmduser = null;
+
+    /**
+     * @var Collection<int, CommandDetail>
+     */
+    #[ORM\OneToMany(targetEntity: CommandDetail::class, mappedBy: 'command')]
+    private Collection $commandDetails;
 
     // #[ORM\ManyToOne(inversedBy: 'commands')]
     // #[ORM\JoinColumn(nullable: false)]
