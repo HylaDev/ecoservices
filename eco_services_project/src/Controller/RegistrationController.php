@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CustomerRoleRepository;
 use App\Entity\Users;
 use App\Form\RegistrationFormType;
 use App\Security\UsersAuthenticator;
@@ -16,8 +17,9 @@ use Symfony\Component\Routing\Attribute\Route;
 class RegistrationController extends AbstractController
 {
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager, CustomerRoleRepository $customerRoleRepository): Response
     {
+        $role_id = $request->query->getInt('role_id');
         $user = new Users();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -31,6 +33,8 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            $customerRole = $customerRoleRepository->findOneById($role_id);
+            $user->setCustomerRole($customerRole);
             $entityManager->persist($user);
             $entityManager->flush();
 

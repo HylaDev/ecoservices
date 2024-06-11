@@ -24,6 +24,16 @@ class CustomerRoleRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findOneById($value): ?CustomerRole
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     //    /**
     //     * @return CustomerRole[] Returns an array of CustomerRole objects
     //     */

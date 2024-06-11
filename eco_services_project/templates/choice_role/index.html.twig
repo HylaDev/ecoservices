@@ -10,7 +10,9 @@
     Vous êtes:
     <ul>
        {% for role in roles %}
-            <li>{{ role.name }}</li>
+            <li><a href="{{ path('app_register', { 'role_id': role.id }) }}">
+                    {{ role.name }}
+                </a></li>
         {% endfor %}
     </ul>
 </div>
