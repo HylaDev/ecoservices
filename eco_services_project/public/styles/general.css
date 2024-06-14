@@ -25,7 +25,7 @@ a{
     color: var(--primary-color);
 }
 .text-secon{
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
 }
 .border-secondary{
     color: var(--secondary-color) !important;
@@ -196,6 +196,24 @@ a{
 }
 /*** Hero Header end ***/
 
-/*** specifications Start ***/
+/*** Shop Start ***/
+#shop{
+    margin-top: 15% !important;
+}
+#shop a{
+    color: var(--secondary-color) !important;
+}
+/*** Shop End ***/
 
-/*** specifications End ***/
+/*** Categories Start ***/
+#categories{
+    margin-top: 15% !important;
+}
+#categories a{
+    text-decoration: none !important;
+}
+#categories a .category-card:hover{
+    background-color: var(--primary-color) !important;
+    transition: 2s;
+}
+/*** Categories End ***/

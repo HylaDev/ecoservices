@@ -18,9 +18,8 @@ security:
             provider: app_user_provider
             custom_authenticator: App\Security\UsersAuthenticator
             logout:
-                path: app_logout
-                # where to redirect after logout
-                # target: app_any_route
+                path: logout
+                target: home
 
             remember_me:
                 secret: '%kernel.secret%'

@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+class ShopController extends AbstractController
+{
+    #[Route('/shop', name: 'shop')]
+    public function index(): Response
+    {
+        $user = $this->getUser();
+        return $this->render('shop/index.html.twig', [
+            'controller_name' => 'ShopController',
+            'user' => $user,
+        ]);
+    }
+}
