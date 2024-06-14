@@ -3,16 +3,46 @@
 {% block title %}Log in!{% endblock %}
 
 {% block content %}
+    <div class="container" id="loginForm">
+        <div class="row login-bg">
+            <div class="col-lg-6 col-md-12 m-bg-primary text-white">
+                <div class="container p-3 login-text">
+                    <h2>Content de vous revoir</h2>
+                    <p>Connectez-vous pour profiter pleinnement de nos services</p>
+                    <p>Vous n'avez pas de compte ? <a href="{{path('app_choice_role') }}">Inscrivez-vous ici</a></p>
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 p-3 formulaire">
+                <h2>Connexion</h2>
+                <form method="POST" action="">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <input type="text" class="form-control my-3" placeholder="email" name="email" id="" required autofocus>
+                        <input type="password" class="form-control" placeholder="password" name="password" id="">
+                    </div>
+                    <input type="hidden" name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                    >
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Rester connecté
+                        </label>
+                    </div>
+                    <button type="submit" class="btn border border-secondary rounded-pill px-3 text-green w-100">Connexion</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- 
 <div class="container py-5 mt-5">
+
     <form method="post" class="py-5 mt-5">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('logout') }}">Logout</a>
-        </div>
     {% endif %}
 
     <h1 class="h3 mb-3 font-weight-normal">Pleaseeee sign in</h1>
@@ -35,5 +65,5 @@
         Sign in
     </button>
 </form>
-</div>
+</div>-->
 {% endblock %}

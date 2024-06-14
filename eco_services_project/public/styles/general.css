@@ -32,6 +32,7 @@ a{
 }
 /*** General End ***/
 
+
 /*** Spinner Start ***/
 #spinner {
     opacity: 0;
@@ -59,6 +60,13 @@ a{
     z-index: 99;
 }
 /*** Spinner End ***/
+
+/*** Buttons ***/
+.btn .m-btn-primary{
+    background-color: var(--primary-color) !important;
+    color: var(--white-color) !important;
+}
+/*** End Buttons ***/
 
 /*** Topbar Start ***/
 .fixed-top {
@@ -217,3 +225,44 @@ a{
     transition: 2s;
 }
 /*** Categories End ***/
+
+
+/** Forms */
+#loginForm{
+    margin-top: 15% !important;
+}
+
+#loginForm .login-bg {
+    background-color: var(--white-color);
+    box-shadow: -4px 4px 6px -6px var(--secondary-color),
+                -6px 4px 16px 6px #eee;
+    margin: 5%;
+}
+
+#loginForm .login-text p a {
+    color: var(--white-color) !important;
+}
+#loginForm .login-text p a:hover {
+    color: var(--secondary-color) !important;
+}
+#loginForm button:hover{
+    background-color: var(--primary-color) !important;
+    color: var(--white-color) !important;
+}
+@media screen and (max-width:1000px) {
+    #loginForm{
+        margin-top: 25% !important;
+    }
+    #loginForm .login-text {
+        margin-top: 0vh !important;
+        padding: 1%;
+    }
+}
+#loginForm .login-text a{
+    text-decoration: underline;
+    color: var(--secondary-color) !important;
+}
+#loginForm .formulaire span{
+    color: var(--primary-color) !important;
+}
+/**/
