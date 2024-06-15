@@ -17,18 +17,14 @@
                         Tout
                     </label>
                 </div>
-                <div class="form-check my-2">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Catégorie 1
-                    </label>
-                </div>
-                <div class="form-check my-2">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Catégorie 2
-                    </label>
-                </div>
+                {% for category in categories %}
+                    <div class="form-check my-2">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {{ category.designation }}
+                        </label>
+                    </div>
+                {% endfor %}
             </div>
             <div class="prices">
                 <h5>Filtrer par prix</h5>
@@ -56,106 +52,33 @@
             <!--Product Start -->
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col-xl-6 my-2">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Peinture Bio</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star"></i>
+                    {% for product in products %}
+                        <div class="col-lg-6 col-xl-6 my-2">
+                            <div class="p-4 rounded bg-light">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
                                     </div>
-                                    {% if app.user %}
-                                    <div class="mb-3">
-                                        <h4 class="text-secon">20 €</h4>
+                                    <div class="col-6">
+                                        <a href="#" class="h5">{{ product.designation }}</a>
+                                        <div class="d-flex my-3">
+                                            <i class="fas fa-star text-green"></i>
+                                            <i class="fas fa-star text-green"></i>
+                                            <i class="fas fa-star text-green"></i>
+                                            <i class="fas fa-star text-green"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        {% if app.user %}
+                                        <div class="mb-3">
+                                            <h4 class="text-secon">{{ product.price }} €</h4>
+                                        </div>
+                                        {% endif %}
+                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Ajouter</a>
                                     </div>
-                                    {% endif %}
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Ajouter</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-6 my-2">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Peinture Bio</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    {% if app.user %}
-                                    <div class="mb-3">
-                                        <h4 class="text-secon">20 €</h4>
-                                    </div>
-                                    {% endif %}
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Ajouter</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-6 my-2">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Peinture Bio</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    {% if app.user %}
-                                    <div class="mb-3">
-                                        <h4 class="text-secon">20 €</h4>
-                                    </div>
-                                    {% endif %}
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Ajouter</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-6 my-2">
-                        <div class="p-4 rounded bg-light">
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
-                                </div>
-                                <div class="col-6">
-                                    <a href="#" class="h5">Peinture Bio</a>
-                                    <div class="d-flex my-3">
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star text-green"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    {% if app.user %}
-                                    <div class="mb-3">
-                                        <h4 class="text-secon">20 €</h4>
-                                    </div>
-                                    {% endif %}
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Ajouter</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
 
                 </div>
             </div>
