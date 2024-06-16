@@ -265,4 +265,46 @@ a{
 #loginForm .formulaire span{
     color: var(--primary-color) !important;
 }
-/**/
+/*End Form */
+
+/* Status choice */
+#role_choice{
+    margin-top: 15%;
+    text-align: center;
+}
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.profile-card {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    color: var(--white-color);
+    width: 200px;
+}
+
+.profile-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: var(--primary-color);
+}
+
+.profile-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:1000px) {
+    #role_choice{
+        margin-top: 30% !important;
+    }
+    
+}
