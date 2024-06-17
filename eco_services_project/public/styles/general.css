@@ -16,7 +16,7 @@ a{
     background-color: var(--white-color);
 }
 .m-bg-primary{
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
 }
 .m-bg-secondary{
     background-color: var(--secondary-color);
@@ -29,6 +29,9 @@ a{
 }
 .border-secondary{
     color: var(--secondary-color) !important;
+}
+.h-400{
+    max-height: 400px !important;
 }
 /*** General End ***/
 
@@ -306,5 +309,10 @@ a{
     #role_choice{
         margin-top: 30% !important;
     }
-    
+}
+
+/*** Product Details Start ***/
+#detailsProduit
+{
+    margin-top: 15%;
 }

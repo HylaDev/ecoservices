@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails Produit{% endblock %}
+
+{% block content %}
+
+
+<div class="container" id="detailsProduit">
+    <div class="breadcrumb">
+        <a href="{{ path('home') }}">Accueil</a> <span class="mx-2">/</span> <p class="">Détails Produit</p>
+    </div>
+    <div class="row g-4 mb-5">
+        <div class="col-lg-8 col-xl-9">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="border rounded">
+                        <a href="#">
+                            <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid rounded" alt="Image">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="fw-bold mb-3">{{product.designation}}</h4>
+                    <p class="mb-3">Catégorie: {{product.category.designation}}</p>
+                    <h5 class="fw-bold mb-3">{{product.price}} €</h5>
+                    <div class="d-flex mb-4">
+                        <i class="fa fa-star text-green"></i>
+                        <i class="fa fa-star text-green"></i>
+                        <i class="fa fa-star text-green"></i>
+                        <i class="fa fa-star text-green"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p class="mb-4">
+                        {{product.description}}
+                    </p>
+                    <div class="input-group quantity mb-5" style="width: 100px;">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-minus rounded-circle m-bg-primary text-secon" >
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <input type="text" class="form-control form-control-sm text-center border-0" value="1">
+                        <div class="input-group-btn">
+                            <button class="btn btn-sm btn-plus rounded-circle m-bg-primary  text-secon">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <a href="#" class="btn m-btn-primary border text-green rounded-pill px-4 py-2 mb-4"><i class="fa fa-shopping-cart text-green  me-2 text-primary"></i> Ajouter</a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-lg-4 col-xl-3">
+            <div class="row g-4">
+                <div class="col-lg-12">
+                    <div class="input-group w-100 mx-auto d-flex mb-4">
+                        <input type="search" class="form-control p-3" placeholder="mot(s) clé(s)" aria-describedby="search-icon-1">
+                        <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                    </div>
+                    <div class="mb-4">
+                        <h4>Catégories</h4>
+                        <ul class="list-unstyled">
+                            {% for category in categories %}
+                            <li>
+                                <div class=" fruite-name">
+                                    <i class="fas fa-chevron-right mx-2"></i><a href="#">{{category.designation}}</a>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <h1 class="fw-bold mb-3">Produits similaires</h1>
+    <div class="vesitable">
+        <div class="owl-carousel vegetable-carousel justify-content-center">
+        {% for produit in products %}
+            <div class="border border-secondary rounded position-relative vesitable-item h-400">
+                <div class="vesitable-img">
+                    <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid w-100 rounded-top" alt="">
+                </div>
+                <div class="p-4 pb-0 rounded-bottom">
+                    <h5>{{produit.designation}}</h5>
+                    <div class="d-flex justify-content-between flex-lg-wrap">
+                    {% if app.user %}
+                        <p class="fs-3 fw-bold">{{produit.price}}</p>
+                    {% endif %}
+                        <a href="#" class="btn border border-secondary rounded-pill px-3 py-1 mb-4 text-primary"><i class="fa fa-shopping-cart me-2 text-primary"></i> Ajouter</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
