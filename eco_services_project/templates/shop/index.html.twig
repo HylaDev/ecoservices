@@ -12,14 +12,14 @@
             <div class="categories">
                 <h5>Filtrer par catégories</h5>
                 <div class="form-check my-2">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <input class="form-check-input filter-all" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label" for="flexCheckDefault">
                         Tout
                     </label>
                 </div>
                 {% for category in categories %}
                     <div class="form-check my-2">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input filter" type="checkbox" value="{{ category.id }}" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             {{ category.designation }}
                         </label>
@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="row">
                     {% for product in products %}
-                        <div class="col-lg-6 col-xl-6 my-2">
+                        <div class="col-lg-6 col-xl-6 my-2 item {{ product.category.id }}">
                             <div class="p-4 rounded bg-light">
                                 <div class="row align-items-center">
                                     <div class="col-6">
@@ -86,4 +86,39 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    function filterList() {
+        var selectedFilters = $('.filter:checked').map(function() {
+            return this.value;
+        }).get();
+
+        if (selectedFilters.length > 0) {
+            $('.item').hide();
+            selectedFilters.forEach(function(filter) {
+                $('.item.' + filter).show();
+            });
+        } else {
+            $('.item').show();
+        }
+    }
+    $('.filter-all').on('change', function() {
+        $('.filter').prop('checked', this.checked);
+        filterList(); 
+    });
+    $('.filter').on('change', function() {
+        if (!this.checked) {
+            $('.filter-all').prop('checked', false);
+        }
+
+        if ($('.filter:checked').length === $('.filter').length) {
+            $('.filter-all').prop('checked', true);
+        }
+
+        filterList();
+    });
+    filterList();
+});
+</script>
 {% endblock %}
