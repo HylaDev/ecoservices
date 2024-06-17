@@ -38,7 +38,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 200)]
     private ?string $lastname = null;
 
-    #[ORM\Column(length: 200)]
+    #[ORM\Column(length: 200, nullable: true)]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 255)]
@@ -61,6 +61,9 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\ManyToOne]
     private ?CustomerRole $customerRole = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $siren = null;
 
     public function __construct()
     {
@@ -259,6 +262,18 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCustomerRole(?CustomerRole $customerRole): static
     {
         $this->customerRole = $customerRole;
+
+        return $this;
+    }
+
+    public function getSiren(): ?string
+    {
+        return $this->siren;
+    }
+
+    public function setSiren(?string $siren): static
+    {
+        $this->siren = $siren;
 
         return $this;
     }

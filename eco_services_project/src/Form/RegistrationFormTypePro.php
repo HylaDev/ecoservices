@@ -14,16 +14,16 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class RegistrationFormType extends AbstractType
+class RegistrationFormTypePro extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('email', EmailType::class)
             ->add('lastname',TextType::class, [
-                'label' => 'Nom',
+                'label' => 'Nom de l\'entreprise',
             ])
-            ->add('firstname',TextType::class)
+            ->add('siren',TextType::class)
             ->add('phone',TextType::class)
             ->add('address',TextType::class)
             ->add('agreeTerms', CheckboxType::class, [
