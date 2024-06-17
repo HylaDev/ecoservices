@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\CustomerRoleRepository;
 use App\Entity\Users;
 use App\Form\RegistrationFormType;
+use App\Form\RegistrationFormTypePro;
 use App\Security\UsersAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,7 +22,11 @@ class RegistrationController extends AbstractController
     {
         $role_id = $request->query->getInt('role_id');
         $user = new Users();
+        $customerRole = $customerRoleRepository->findOneById($role_id);
         $form = $this->createForm(RegistrationFormType::class, $user);
+        if($customerRole->getName() == 'Professionnel'){
+            $form = $this->createForm(RegistrationFormTypePro::class, $user);
+        }
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -32,8 +37,6 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
-            $customerRole = $customerRoleRepository->findOneById($role_id);
             $user->setCustomerRole($customerRole);
             $entityManager->persist($user);
             $entityManager->flush();
@@ -44,7 +47,8 @@ class RegistrationController extends AbstractController
         }
 
         return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form,
+            'customerRole' => $customerRole,
+            'registrationForm' => $form->createView(),
         ]);
     }
 }
