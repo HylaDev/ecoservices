@@ -79,6 +79,8 @@
     <div class="vesitable">
         <div class="owl-carousel vegetable-carousel justify-content-center">
         {% for produit in products %}
+            {% if produit.id == product.id %}
+            {% else %}
             <div class="border border-secondary rounded position-relative vesitable-item h-400">
                 <div class="vesitable-img">
                     <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid w-100 rounded-top" alt="">
@@ -93,6 +95,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
         </div>
     </div>
