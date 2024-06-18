@@ -32,6 +32,17 @@ class ProductRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
+
+    public function findSimilar($pdtId, $cateId): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.category = :cateId')
+            ->andWhere('c.id != :pdtId')
+            ->setParameter('cateId', $cateId)
+            ->setParameter('pdtId', $pdtId)
+            ->getQuery()
+            ->getResult();
+    }
     //    /**
     //     * @return Product[] Returns an array of Product objects
     //     */

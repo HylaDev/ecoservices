@@ -17,13 +17,13 @@ class ProductDetailsController extends AbstractController
     {   
         $categories = $productCategory->findAll();
         $productId = $request->query->getInt('produit');
-        $products = $productRepo->findAll();
         $product = $productRepo->findOneById($productId);
+        $productsSimilar = $productRepo->findSimilar($product->getId(), $product->getCategory());
         return $this->render('product_details/index.html.twig', [
             'controller_name' => 'ProductDetailsController',
             'product' => $product,
             'categories' => $categories,
-            'products' => $products,
+            'productsSimilar' => $productsSimilar,
         ]);
     }
 }

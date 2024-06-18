@@ -84,7 +84,7 @@ $(document).ready(function() {
         if (selectedFilters.length > 0) {
             $('.item').hide();
             selectedFilters.forEach(function(filter) {
-                $('.item.' + filter).show();
+                $('.' + filter).show();
             });
         } else {
             $('.item').show();
