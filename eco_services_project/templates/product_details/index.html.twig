@@ -74,7 +74,7 @@
     <h1 class="fw-bold mb-3">Produits similaires</h1>
     <div class="vesitable">
         <div class="owl-carousel vegetable-carousel justify-content-center">
-        {% for produit in products %}
+        {% for produit in productsSimilar %}
             <div class="border border-secondary rounded position-relative vesitable-item h-400">
                 <div class="vesitable-img">
                     <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid w-100 rounded-top" alt="">
@@ -89,7 +89,6 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
         {% endfor %}
         </div>
     </div>
