@@ -20,9 +20,6 @@ class QuoteRequest
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column]
-    private ?bool $validity = null;
-
-    #[ORM\Column]
     private ?float $total = null;
 
     #[ORM\ManyToOne(inversedBy: 'quoteRequests')]
@@ -34,6 +31,12 @@ class QuoteRequest
      */
     #[ORM\OneToMany(targetEntity: QuoteRequestDetail::class, mappedBy: 'request', orphanRemoval: true)]
     private Collection $quoteRequestDetails;
+
+    #[ORM\ManyToOne]
+    private ?QrStatus $status = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $comment = null;
 
     public function __construct()
     {
@@ -65,18 +68,6 @@ class QuoteRequest
     public function setDate(\DateTimeInterface $date): static
     {
         $this->date = $date;
-
-        return $this;
-    }
-
-    public function isValidity(): ?bool
-    {
-        return $this->validity;
-    }
-
-    public function setValidity(bool $validity): static
-    {
-        $this->validity = $validity;
 
         return $this;
     }
@@ -131,6 +122,30 @@ class QuoteRequest
     public function setQruser(?Users $qruser): static
     {
         $this->qruser = $qruser;
+
+        return $this;
+    }
+
+    public function getStatus(): ?QrStatus
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?QrStatus $status): static
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    public function setComment(?string $comment): static
+    {
+        $this->comment = $comment;
 
         return $this;
     }

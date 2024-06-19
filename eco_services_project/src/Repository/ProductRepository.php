@@ -23,6 +23,14 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findLimit6(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findOneById($value): ?Product
     {
         return $this->createQueryBuilder('c')

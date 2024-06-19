@@ -7,9 +7,11 @@ use App\Entity\ProductCategory;
 use App\Entity\Stock;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class ProductType extends AbstractType
 {
@@ -27,6 +29,22 @@ class ProductType extends AbstractType
                 'mapped' => false, 
                 'data' => $options['stock_quantity'], // Set initial data from the stock
                 'label' => 'Quantité en stock',
+            ])
+            ->add('imageFile', FileType::class, [
+                'label' => 'Image',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '5M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/webp',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid image file (JPEG or PNG or WEBP)',
+                    ])
+                ],
             ]);
             // ->add('stock', EntityType::class, [
             //     'class' => Stock::class,

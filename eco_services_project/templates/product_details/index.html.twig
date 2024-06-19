@@ -15,7 +15,11 @@
                 <div class="col-lg-6">
                     <div class="border rounded">
                         <a href="#">
-                            <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid rounded" alt="Image">
+                            {% if product.image %}
+                                <img src="{{ asset('assets/img/products/' ~ product.image) }}" class="img-fluid rounded" alt="Image">
+                            {% else %}
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid rounded" alt="">
+                            {% endif %}
                         </a>
                     </div>
                 </div>
@@ -78,7 +82,11 @@
         {% for produit in productsSimilar %}
             <div class="border border-secondary rounded position-relative vesitable-item h-400">
                 <div class="vesitable-img">
-                    <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid w-100 rounded-top" alt="">
+                    {% if produit.image %}
+                        <img src="{{ asset('assets/img/products/' ~ produit.image) }}" class="img-fluid w-100 rounded-top" alt="">
+                    {% else %}
+                        <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid w-100 rounded-top" alt="">
+                    {% endif %}
                 </div>
                 <div class="p-4 pb-0 rounded-bottom">
                     <h5>{{produit.designation}}</h5>

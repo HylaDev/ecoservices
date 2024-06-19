@@ -41,7 +41,11 @@
                                     <div class="row align-items-center">
                                         <div class="col-6">
                                             <a href="{{ path('app_product_details', { produit: product.id }) }}">
-                                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                                                {% if product.image %}
+                                                    <img src="{{ asset('assets/img/products/' ~ product.image) }}" class="img-fluid" alt="">
+                                                {% else %}
+                                                    <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                                                {% endif %}
                                             </a>
                                         </div>
                                         <div class="col-6">
