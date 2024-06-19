@@ -37,6 +37,9 @@ class Product
     #[ORM\JoinColumn(nullable: false)]
     private ?ProductCategory $category = null;
 
+    #[ORM\OneToOne(mappedBy: 'product', cascade: ['persist', 'remove'])]
+    private ?Stock $stock = null;
+
     public function __construct()
     {
         $this->commandDetails = new ArrayCollection();
@@ -123,6 +126,28 @@ class Product
     public function setCategory(?ProductCategory $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getStock(): ?Stock
+    {
+        return $this->stock;
+    }
+
+    public function setStock(?Stock $stock): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($stock === null && $this->stock !== null) {
+            $this->stock->setProduct(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($stock !== null && $stock->getProduct() !== $this) {
+            $stock->setProduct($this);
+        }
+
+        $this->stock = $stock;
 
         return $this;
     }

@@ -66,17 +66,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <div class="d-flex align-items-center mt-2">
-                                        <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
-                                    </div>
-                                </th>
-                                <td class="py-5">designation</td>
-                                <td class="py-5">100</td>
-                                <td class="py-5">2</td>
-                                <td class="py-5">100</td>
-                            </tr>
+                            {% for cart in carts %}
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center mt-2">
+                                            <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid rounded-circle" style="width: 60px; height: 60px;" alt="">
+                                        </div>
+                                    </th>
+                                    <td class="py-5">{{ cart.product.designation }}</td>
+                                    <td class="py-5">{{ cart.price }}</td>
+                                    <td class="py-5">{{ cart.quantity }}</td>
+                                    <td class="py-5">{{ cart.total }}</td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
