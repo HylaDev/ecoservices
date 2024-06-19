@@ -15,6 +15,17 @@ class ProductDetailsController extends AbstractController
     #[Route('/details', name: 'app_product_details')]
     public function index(Request $request, ProductRepository $productRepo, ProductCategoryRepository $productCategory): Response
     {   
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+        $customerRole = $user->getCustomerRole();
+
+        if ($customerRole->getName() !== 'Particulier') {
+            $content = $this->renderView('error/access_denied.html.twig');
+            return new Response($content, 403);
+        }
         $categories = $productCategory->findAll();
         $productId = $request->query->getInt('produit');
         $product = $productRepo->findOneById($productId);

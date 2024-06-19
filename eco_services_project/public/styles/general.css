@@ -335,3 +335,9 @@ a{
     margin-top: 15%;
 }
 /*** Checkout End ***/
+
+/*** Acess Denied Start***/
+#acess_denied{
+    margin-top: 15% !important;
+}
+/*** Acess Denied End ***/
