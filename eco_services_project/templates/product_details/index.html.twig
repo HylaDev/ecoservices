@@ -4,7 +4,6 @@
 
 {% block content %}
 
-
 <div class="container" id="detailsProduit">
     <div class="breadcrumb">
         <a href="{{ path('home') }}">Accueil</a> <span class="mx-2">/</span> <p class="">Détails Produit</p>
@@ -46,7 +45,8 @@
                             </button>
                         </div>
                     </div>
-                    <a href="#" class="btn m-btn-primary border text-green rounded-pill px-4 py-2 mb-4 add-to-cart-link" data-product-id="{{ product.id }}"><i class="fa fa-shopping-cart text-green  me-2 text-primary"></i> Ajouter</a>
+                    <p class="mb-3">Il reste une quantité de {{product.stock.quantity}} restante pour ce produit.</p>
+                    <a href="#" class="btn m-btn-primary border text-green rounded-pill px-4 py-2 mb-4 add-to-cart-link" data-product-id="{{ product.id }} add-to-cart-link" data-product-id="{{ product.id }}"><i class="fa fa-shopping-cart text-green  me-2 text-primary"></i> Ajouter</a>
                 </div>
                 
             </div>

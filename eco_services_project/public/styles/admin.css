@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+  --primary-color:#2ed38b;
+  --secondary-color:#808080;
+  --white-color:#ffffff;
+  --black-color:#000000;
+}
+
+body {
+  margin: 0;
+  font-family: "MuseoModerno", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 240px;
+  background-color: var(--secondary-color);
+  position: fixed;
+  height: 100vh;
+  overflow: hidden !important;
+}
+
+.sidebar a {
+  display: block;
+  color: var(--white-color);
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: var(--white-color);
+  color: var(--secondary-color);
+}
+
+div.content {
+  margin-left: 250px;
+  padding: 1px 16px;
+  height: 1000px;
+
+}
+.content .myd-flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div .contacts{
+  background-color: var(--primary-color)!important;
+  color: var(--white-color);
+  width: 200px !important;
+  padding: 3%;
+}
+div a {
+  text-decoration: none;
+}
+div .contacts p{
+  font-size: 20px;
+}
+@media screen and (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a span{
+    display: none;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0!important;
+  }
+}
+
+@media screen and (max-width: 200px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
