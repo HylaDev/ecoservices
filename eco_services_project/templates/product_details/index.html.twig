@@ -39,14 +39,14 @@
                                 <i class="fa fa-minus"></i>
                             </button>
                         </div>
-                        <input type="text" class="form-control form-control-sm text-center border-0" value="1">
+                        <input type="text" class="form-control form-control-sm text-center border-0 quantity-input" value="1">
                         <div class="input-group-btn">
                             <button class="btn btn-sm btn-plus rounded-circle m-bg-primary  text-secon">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </div>
                     </div>
-                    <a href="#" class="btn m-btn-primary border text-green rounded-pill px-4 py-2 mb-4"><i class="fa fa-shopping-cart text-green  me-2 text-primary"></i> Ajouter</a>
+                    <a href="#" class="btn m-btn-primary border text-green rounded-pill px-4 py-2 mb-4 add-to-cart-link" data-product-id="{{ product.id }}"><i class="fa fa-shopping-cart text-green  me-2 text-primary"></i> Ajouter</a>
                 </div>
                 
             </div>
@@ -60,7 +60,7 @@
                             {% for category in categories %}
                             <li>
                                 <div class=" fruite-name">
-                                    <i class="fas fa-chevron-right mx-2"></i><a href="#">{{category.designation}}</a>
+                                    <i class="fas fa-chevron-right mx-2"></i><a href="{{ path('shop', { 'category_id': category.id }) }}">{{category.designation}}</a>
                                 </div>
                             </li>
                             {% endfor %}
@@ -89,9 +89,9 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
         {% endfor %}
         </div>
     </div>
 </div>
+<script src="assets/js/cart.js"></script>
 {% endblock %}

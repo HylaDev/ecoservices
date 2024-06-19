@@ -19,7 +19,7 @@
                 </div>
                 {% for category in categories %}
                     <div class="form-check my-2">
-                        <input class="form-check-input filter" type="checkbox" value="{{ category.id }}" id="flexCheckDefault">
+                        <input class="form-check-input filter {{ category.id }}" type="checkbox" value="{{ category.id }}" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             {{ category.designation }}
                         </label>
@@ -58,7 +58,7 @@
                                                 <h4 class="text-secon">{{ product.price }} €</h4>
                                             </div>
                                             {% endif %}
-                                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Ajouter</a>
+                                            <a href="{{ path('add_to_cart', { 'product_id': product.id, 'quantity':1 }) }}" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Ajouter</a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,6 +77,10 @@
 <script>
 $(document).ready(function() {
     function filterList() {
+        var cateId = "{{ cateId|e('js') }}";
+        if(cateId >0){
+            $('.' + cateId).prop('checked', true);
+        }
         var selectedFilters = $('.filter:checked').map(function() {
             return this.value;
         }).get();
