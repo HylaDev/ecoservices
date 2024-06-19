@@ -19,6 +19,17 @@ class CheckoutController extends AbstractController
     #[Route('/checkout', name: 'app_checkout')]
     public function index(): Response
     {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+        $customerRole = $user->getCustomerRole();
+
+        if ($customerRole->getName() !== 'Particulier') {
+            $content = $this->renderView('error/access_denied.html.twig');
+            return new Response($content, 403);
+        }
         $carts = $this->cartService->getCart();
         return $this->render('checkout/index.html.twig', [
             'carts' => $carts,

@@ -20,6 +20,17 @@ class CartController extends AbstractController
     #[Route('/cart', name: 'app_cart')]
     public function index(): Response
     {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+        $customerRole = $user->getCustomerRole();
+
+        if ($customerRole->getName() !== 'Particulier') {
+            $content = $this->renderView('error/access_denied.html.twig');
+            return new Response($content, 403);
+        }
         $carts = $this->cartService->getCart();
         $total = $this->cartService->getTotal();
         return $this->render('cart/index.html.twig', [
@@ -32,6 +43,17 @@ class CartController extends AbstractController
     #[Route('/add_to_cart', name: 'add_to_cart')]
     public function add_to_cart(Request $request): Response
     {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+        $customerRole = $user->getCustomerRole();
+
+        if ($customerRole->getName() !== 'Particulier') {
+            $content = $this->renderView('error/access_denied.html.twig');
+            return new Response($content, 403);
+        }
         $productId = $request->query->getInt('product_id');
         $quantity = $request->query->getInt('quantity');
 
@@ -43,6 +65,17 @@ class CartController extends AbstractController
     #[Route('/update_cart', name: 'update_cart')]
     public function update_cart(Request $request): Response
     {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+        $customerRole = $user->getCustomerRole();
+
+        if ($customerRole->getName() !== 'Particulier') {
+            $content = $this->renderView('error/access_denied.html.twig');
+            return new Response($content, 403);
+        }
         $productId = $request->query->getInt('product_id');
         $quantity = 1;
         if($request->query->getBoolean('manus')){
@@ -57,6 +90,17 @@ class CartController extends AbstractController
     #[Route('/remove_to_cart', name: 'remove_to_cart')]
     public function remove_to_cart(Request $request): Response
     {
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+        $customerRole = $user->getCustomerRole();
+
+        if ($customerRole->getName() !== 'Particulier') {
+            $content = $this->renderView('error/access_denied.html.twig');
+            return new Response($content, 403);
+        }
         $productId = $request->query->getInt('product_id');
 
         $this->cartService->remove_to($productId);
