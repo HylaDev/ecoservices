@@ -36,62 +36,182 @@
     </div>
 <!-- Hero End -->
 
-<!--Specifications Start -->
-    <div id="specifications" class="container-fluid py-4">
-        <div class="container py-5">
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class=" text-center m-bg-secondary p-4">
-                        <div class="specifications-icon mb-5 mx-auto">
-                            <i class="text-white fas fa-car-side fa-3x"></i>
+{% if app.user %}
+    {% if app.user.customerRole.name == "Particulier" %}
+        <!--Specifications Start -->
+            <div id="specifications" class="container-fluid py-4">
+                <div class="container py-5">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class=" text-center m-bg-secondary p-4">
+                                <div class="specifications-icon mb-5 mx-auto">
+                                    <i class="text-white fas fa-car-side fa-3x"></i>
+                                </div>
+                                <div class="specifications-content text-white text-center">
+                                    <h5>Livraison gratuite</h5>
+                                    <p class="mb-0">Gratuite à partir de 50€ d'achat</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="specifications-content text-white text-center">
-                            <h5>Livraison gratuite</h5>
-                            <p class="mb-0">Gratuite à partir de 50€ d'achat</p>
+                        <div class="col-md-6 col-lg-3">
+                            <div class=" text-center m-bg-secondary p-4">
+                                <div class="specifications-icon mb-5 mx-auto">
+                                    <i class="text-white fas fa-user-shield fa-3x"></i>
+                                </div>
+                                <div class="specifications-content text-white text-center">
+                                    <h5>Paiement sécurisé</h5>
+                                    <p class="mb-0">Payez en toute sécurité en ligne</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class=" text-center m-bg-secondary p-4">
-                        <div class="specifications-icon mb-5 mx-auto">
-                            <i class="text-white fas fa-user-shield fa-3x"></i>
+                        <div class="col-md-6 col-lg-3">
+                            <div class=" text-center m-bg-secondary p-4">
+                                <div class="specifications-icon mb-5 mx-auto">
+                                    <i class="text-white fas fa-exchange-alt fa-3x"></i>
+                                </div>
+                                <div class="specifications-content text-white text-center">
+                                    <h5>Retour sous 30 jours</h5>
+                                    <p class="mb-0">Garantie de paiement de 30 jours</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="specifications-content text-white text-center">
-                            <h5>Paiement sécurisé</h5>
-                            <p class="mb-0">Payez en toute sécurité en ligne</p>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class=" text-center m-bg-secondary p-4">
+                                <div class="specifications-icon mb-5 mx-auto">
+                                    <i class="text-white fa fa-phone-alt fa-3x"></i>
+                                </div>
+                                <div class="specifications-content text-white text-center">
+                                    <h5>Assistance 24/7</h5>
+                                    <p class="mb-0">Une assistance toujours rapide</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class=" text-center m-bg-secondary p-4">
-                        <div class="specifications-icon mb-5 mx-auto">
-                            <i class="text-white fas fa-exchange-alt fa-3x"></i>
-                        </div>
-                        <div class="specifications-content text-white text-center">
-                            <h5>Retour sous 30 jours</h5>
-                            <p class="mb-0">Garantie de paiement de 30 jours</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 col-lg-3">
-                    <div class=" text-center m-bg-secondary p-4">
-                        <div class="specifications-icon mb-5 mx-auto">
-                            <i class="text-white fa fa-phone-alt fa-3x"></i>
-                        </div>
-                        <div class="specifications-content text-white text-center">
-                            <h5>Assistance 24/7</h5>
-                            <p class="mb-0">Une assistance toujours rapide</p>
-                        </div>
-                    </div>
-                </div>
 
+                    </div>
+                </div>
+            </div>
+        <!-- Specifications End -->
+    {% elseif app.user.customerRole.name == "Professionnel" %}
+        <!--Specifications Start -->
+            <div id="specifications" class="container-fluid py-4">
+                <div class="container py-5">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class=" text-center m-bg-secondary p-4">
+                                <div class="specifications-icon mb-5 mx-auto">
+                                    <i class="text-white fas fa-car-side fa-3x"></i>
+                                </div>
+                                <div class="specifications-content text-white text-center">
+                                    <h5>Services</h5>
+                                    <p class="mb-0">Gratuite à partir de 50€ d'achat</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class=" text-center m-bg-secondary p-4">
+                                <div class="specifications-icon mb-5 mx-auto">
+                                    <i class="text-white fas fa-user-shield fa-3x"></i>
+                                </div>
+                                <div class="specifications-content text-white text-center">
+                                    <h5>Produ</h5>
+                                    <p class="mb-0">Payez en toute sécurité en ligne</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class=" text-center m-bg-secondary p-4">
+                                <div class="specifications-icon mb-5 mx-auto">
+                                    <i class="text-white fas fa-exchange-alt fa-3x"></i>
+                                </div>
+                                <div class="specifications-content text-white text-center">
+                                    <h5>Retour sous 30 jours</h5>
+                                    <p class="mb-0">Garantie de paiement de 30 jours</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class=" text-center m-bg-secondary p-4">
+                                <div class="specifications-icon mb-5 mx-auto">
+                                    <i class="text-white fa fa-phone-alt fa-3x"></i>
+                                </div>
+                                <div class="specifications-content text-white text-center">
+                                    <h5>Assistance 24/7</h5>
+                                    <p class="mb-0">Une assistance toujours rapide</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        <!-- Specifications End -->                               
+    {% endif %}
+{% else %}
+    <div class="container p-3">
+        <h2 class="text-green my-4">Notre Démarche Zéro Déchets</h2>
+        <div class="row">
+            <div class="col-md-4 step-hover">
+                <h5 class="text-secon"> 
+                    <span>1.</span>
+                    Qu'est-ce que la Démarche Zéro Déchets ?
+                </h5>
+                <p class="text-justify">
+                    La démarche zéro déchets vise à réduire au maximum la production de déchets en adoptant des 
+                    habitudes de consommation plus responsables. Cela passe par la réduction de l'utilisation de plastiques, 
+                    le recyclage, la réutilisation des produits et la limitation des emballages superflus. En choisissant des produits durables, réutilisables 
+                    et compostables, nous pouvons tous contribuer à un avenir plus vert.
+                </p>
+            </div>
+            <div class="col-md-4 step-hover">
+                <h5 class="text-secon">
+                    <span>2.</span>
+                    Nos Produits Éco-responsables
+                </h5>
+                <p class="text-justify">
+                    Notre sélection de produits est conçue pour minimiser votre empreinte écologique tout en répondant à vos besoins quotidiens. 
+                    Voici quelques exemples de ce que nous proposons:
+                    <ul>
+                        <li class="fw-bold">Emballages Réutilisables</li>
+                        <li class="fw-bold">Produits de Soins Naturels</li>
+                        <li class="fw-bold">Articles Ménagers Durables</li>
+                        <li class="fw-bold">Recyclage de vos déchets</li>
+                    </ul> 
+                </p>
+            </div>
+            <div class="col-md-4 step-hover">
+                <h5 class="text-secon">
+                    <span>3.</span>
+                    Pourquoi Choisir Nos Produits ?
+                </h5>
+                <p class="text-justify">
+                    <ul>
+                        <li class="text-justify">
+                            <span class="fw-bold">Qualité et Durabilité: </span> 
+                            Nos produits sont sélectionnés pour leur durabilité et leur qualité 
+                            supérieure.
+                        </li>
+                        <li class="text-justify">
+                            <span class="fw-bold">Impact Environnemental Réduit: </span> 
+                             En achetant chez nous, vous contribuez à la réduction des déchets 
+                             et à la préservation des ressources naturelles.
+                        </li>
+                        <li class="text-justify">
+                            <span class="fw-bold">Engagement Éthique: </span> 
+                             Nous collaborons avec des fournisseurs respectueux de l'environnement et des artisans 
+                             locaux pour vous offrir des produits éthiques.
+                        </li>
+                    </ul>
+                </p>
             </div>
         </div>
-    </div>
-<!-- Specifications End -->
 
-<!--Product Start -->
+    </div>
+{% endif %}
+
+
+<!--Particulier Section Start -->
     <div class="container-fluid py-3 m-bg-secondary text-white">
         <div class="container py-3">
             <div class="row">
@@ -116,6 +236,33 @@
             </div>
         </div>
     </div>
-<!--Product End -->
+<!--Particulier Section End -->
+
+<!--Pro Section Start -->
+    <div class="container-fluid py-3">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="">
+                        <h6 class="text-white">Vous êtes un pro ?</h6>
+                        <p class="fs-4 text-justify">
+                            Profitez des services et produits disponibles pour nos utilisateurs pros 
+                            avec des avantages incroyables 🎁!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="">
+                        <p class="text-justify">
+                            Prêt à acheter de nos services eco-responsable🚀
+                        </p>
+                        <a href="{{ path('app_choice_role') }}" class="btn border border-primary text-green px-3"> Je m'inscris</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Pro Section End -->
 
 {% endblock %}

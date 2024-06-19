@@ -33,6 +33,9 @@ a{
 .h-400{
     max-height: 400px !important;
 }
+.text-justify{
+    text-align: justify !important;
+}
 /*** General End ***/
 
 
