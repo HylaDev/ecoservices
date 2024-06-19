@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
-  --primary-color:#2ed38b;
-  --secondary-color:#808080;
-  --white-color:#ffffff;
-  --black-color:#000000;
+    --primary-color:#558900;
+    --secondary-color:#006769;
+    --white-color:#ffffff;
+    --black-color:#000000;
 }
 
 body {
