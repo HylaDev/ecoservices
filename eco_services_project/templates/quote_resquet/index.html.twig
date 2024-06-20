@@ -1,20 +1,69 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello QuoteResquetController!{% endblock %}
+{% block title %}Demande devis{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/doscod/Bureau/Developpement/Symfony-projects/Yelian_DOSSA/ecoservices/eco_services_project/src/Controller/QuoteResquetController.php</code></li>
-        <li>Your template at <code>/home/doscod/Bureau/Developpement/Symfony-projects/Yelian_DOSSA/ecoservices/eco_services_project/templates/quote_resquet/index.html.twig</code></li>
-    </ul>
+{% block content %}
+<div class="container" id="cart">
+    <div class="breadcrumb">
+        <a href="{{ path('home') }}">Accueil</a> <span class="mx-2">/</span> <p class="">Demande devis</p>
+    </div>
+    
+    <div class="row">
+        <div class="col-8">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Désignation</th>
+                        <th scope="col">Poids Estimé</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p class="mb-0 mt-4">Recyclage</p>
+                            </td>
+                            <td>
+                                <div class="input-group quantity mt-4" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <a href="" class="btn btn-sm btn-minus rounded-circle bg-light border" >
+                                        <i class="fa fa-minus"></i>
+                                        </a>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm text-center border-0" value="0">
+                                    <div class="input-group-btn">
+                                        <a href="" class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-md rounded-circle bg-light border mt-4" >
+                                    <i class="fa fa-times text-danger"></i>
+                                    
+                                </a>
+                                
+                            </td>
+                        
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+         <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+            <div class="bg-light rounded">
+                <div class="p-4">
+                    <div class="form-group">
+                        <label for="">Commentaire</label>
+                        <textarea class="form-control" placeholder="Laissez-nous plus de détails" id="" rows="3"></textarea>
+                    </div>
+                </div>
+                
+                <a href="{{ path('app_checkout') }}" class="btn border-secondary px-4 py-3 text-primary mb-4 ms-4" type="button">Soumettre demande</a>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

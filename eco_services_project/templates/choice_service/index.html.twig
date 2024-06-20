@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Choix de services{% endblock %}
+
+{% block content %}
+
+<div class="container" id="role_choice">
+    <h2 class="mb-4">Quelle est votre status?</h2>
+    <div class="profile-container">
+        {% for role in roles %}
+        <a href="{{ path('app_register', { 'role_id': role.id }) }}">
+        <div class="profile-card">
+            <h2 class="profile-name">{{ role.name }}</h2>
+        </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
