@@ -1,0 +1,35 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Service{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5 myd-flex">
+            <h1>Catégorie</h1>
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ service.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Designation</th>
+                        <td>{{ service.designation }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ service.Description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="{{ path('app_service_index') }}">back to list</a>
+
+            <a href="{{ path('app_service_edit', {'id': service.id}) }}">edit</a>
+
+            {{ include('service/_delete_form.html.twig') }}
+                
+        </div>
+    </div>
+{% endblock %}
