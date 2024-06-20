@@ -1,0 +1,42 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Détails{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5 myd-flex">
+            <h1>Product</h1>
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ product.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Designation</th>
+                        <td>{{ product.designation }}</td>
+                    </tr>
+                    <tr>
+                        <th>Price</th>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ product.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Catégorie</th>
+                        <td>{{ product.category.designation }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="{{ path('app_product_index') }}">back to list</a>
+
+            <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+
+            {{ include('product/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

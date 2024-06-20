@@ -1,0 +1,15 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Nouveau produit{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5 myd-flex">
+            <h1>Créer nouveau produit</h1>
+
+            {{ include('product/_form.html.twig') }}
+
+            <a href="{{ path('app_product_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}
