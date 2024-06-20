@@ -83,9 +83,8 @@
                                         <i class="fas fa-user fa-2x text-green"></i>
                                     </a>
                                 {% elseif app.user.customerRole.name == "Professionnel" %}
-                                    <a href="{{ path('app_choice_service') }}" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa-solid fa-pen-to-square"></i> Demander un devis</a>                            
+                                    <a href="{{ path('app_quote_resquet') }}" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa-solid fa-pen-to-square"></i> Demander un devis</a>                            
                                 {% endif %}
-                            
                             {% else %}
                             <a href="{{ path('app_login') }}" class="my-auto">
                                 <i class="fas fa-user fa-1.5x text-green"> Identifiez-vous</i>

@@ -342,9 +342,10 @@
             <h1 class="mb-5">Nos services <span class="text-secon">Eco-Responsables<span></h1>
             <div class="row g-4 text-white">
                 {% for service in services %}
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class=" m-bg-primary rounded p-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3 m-bg-primary p-5">
+                        <div class=" rounded">
                             <h4>{{service.designation}}</h4>
+                            <a href="{{ path('app_quote_resquet') }}" class="btn border p-1 text-white">Ajouter à ma demande</a>
                         </div>
                     </div>
                 {% endfor %}
