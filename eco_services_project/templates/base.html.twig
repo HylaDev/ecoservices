@@ -62,7 +62,7 @@
                                     <a href="{{ path('categories') }}" class="nav-item nav-link">Catégories Produits</a>
                                 {% elseif app.user.customerRole.name == "Professionnel" %}
                                     <a href="{{ path('home') }}" class="nav-item nav-link">Accueil</a>
-                                    <a href="" class="nav-item nav-link">Catalogue Services</a> 
+                                    <a href="{{ path('app_service_catalogue') }}" class="nav-item nav-link">Catalogue Services</a> 
                                     <a href="{{ path('profil') }}" class="nav-item nav-link">Mon Compte</a>                                
                                 {% endif %}
                             {% else %}

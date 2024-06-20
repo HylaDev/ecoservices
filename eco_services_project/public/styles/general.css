@@ -36,6 +36,9 @@ a{
 .text-justify{
     text-align: justify !important;
 }
+.breadcrumb a{
+    color: var(--primary-color);
+}
 /*** General End ***/
 
 
@@ -368,4 +371,10 @@ a{
     background-color: var(--secondary-color);
     padding: 2%;
     color: var(--white-color);
+}
+
+
+/*** Service catalogue ***/
+#catalogue_service{
+    margin-top: 15% !important;
 }

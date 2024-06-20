@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catalogue Services{% endblock %}
+
+{% block content %}
+
+<div class="container" id="catalogue_service">
+    <div class="breadcrumb">
+        <a href="{{ path('home') }}">Accueil</a> <span class="mx-2">/</span> <p class="">Catalogue Services</p>
+    </div>
+    <div class="row">
+        {% for service in services %}
+        
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{service.designation}}</h5>
+                        <p class="card-text">
+                            {{service.description}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ShopController extends AbstractController
 {
     #[Route('/shop', name: 'shop')]
-    public function index(Request $request, ProductCategoryRepository $productCategoryRepository,ProductRepository $productRepository): Response
+    public function index(Request $request, ProductCategoryRepository $productCategoryRepository, ProductRepository $productRepository): Response
     {
         $user = $this->getUser();
 
