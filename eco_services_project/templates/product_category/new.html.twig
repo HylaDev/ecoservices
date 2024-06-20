@@ -1,0 +1,15 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Nouvelle catégorie{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5 myd-flex">
+            <h1>Créer nouvelle catégorie</h1>
+
+            {{ include('product_category/_form.html.twig') }}
+
+            <a href="{{ path('app_product_category_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}

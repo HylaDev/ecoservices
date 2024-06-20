@@ -1,0 +1,17 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Modifier catégorie{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5 myd-flex">
+            <h1>Modifier Catégorie</h1>
+
+            {{ include('product_category/_form.html.twig', {'button_label': 'Update'}) }}
+
+            <a href="{{ path('app_product_category_index') }}">back to list</a>
+
+            {{ include('product_category/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

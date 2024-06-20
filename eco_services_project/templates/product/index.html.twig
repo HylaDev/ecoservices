@@ -27,7 +27,11 @@
                         <td>{{ product.price }}</td>
                         <td>{{ product.description }}</td>
                         <td>{{ product.category.designation }}</td>
-                        <td>{{ product.stock.quantity }}</td>
+                        {% if product.stock %}
+                            <td>{{ product.stock.quantity }}</td>
+                        {% else %}
+                            <td>non disponible</td>
+                        {% endif %}
                         <td>
                             <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
                             <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>

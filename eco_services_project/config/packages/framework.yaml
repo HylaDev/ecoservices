@@ -5,6 +5,7 @@ framework:
 
     # Note that the session will be started ONLY if you read or write from it.
     session: true
+    error_controller: 'App\Controller\ExceptionController::showAccessDeniedPage'
 
     #esi: true
     #fragments: true
