@@ -68,10 +68,11 @@ a{
 /*** Spinner End ***/
 
 /*** Buttons ***/
-.btn .m-btn-primary{
-    background-color: var(--primary-color) !important;
+.m-btn-primary{
     color: var(--white-color) !important;
+    border: 2px solid var(--white-color) !important;
 }
+
 /*** End Buttons ***/
 
 /*** Topbar Start ***/
@@ -210,6 +211,15 @@ a{
 }
 /*** Hero Header end ***/
 
+.step-hover:hover{
+    background-color: var(--primary-color) !important;
+    padding: 1%;
+    transition: 0.5s;
+    color: var(--white-color) !important;
+    box-shadow: 4px 4px 8px var(--primary-color),
+    -4px -4px 8px var(--primary-color);
+}
+
 /*** Shop Start ***/
 #shop{
     margin-top: 15% !important;
@@ -341,3 +351,13 @@ a{
     margin-top: 15% !important;
 }
 /*** Acess Denied End ***/
+
+/***Profil page**/
+#profil{
+    margin-top: 15% !important;
+}
+#profil .card{
+    background-color: var(--secondary-color);
+    padding: 2%;
+    color: var(--white-color);
+}

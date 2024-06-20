@@ -5,6 +5,39 @@
 {% block content %}
 
 <div class="container" id="profil">
-    
+    <div class="breadcrumb">
+        <a href="{{ path('home') }}">Accueil</a> <span class="mx-2">/</span> <p class="">Mon Compte</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card border-0 justify-content-center p-4 align-items-center">
+                <p>{% if app.user %} {{app.user.email}} {% endif %}</p>
+                <div class="d-flex">
+                    <a href="" class="btn m-btn-primary">Modifier</a>
+                    <a href="{{ path('logout') }}" class="btn m-btn-primary mx-2">Déconnexion</a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-md-8">
+            {% if app.user %}
+                {% if app.user.customerRole.name == 'Particulier' %}
+                    <div class="card border-0 p-4 my-2">
+                        <div class="">
+                            <h2>Mes commandes</h2>
+                        </div>
+                    </div>
+                {% elseif app.user.customerRole.name == 'Professionnel'%}
+                    <div class="card border-0 p-4 my-2">
+                        <div class="">
+                            <h2>Mes demandes de devis</h2>
+                        </div>
+                    </div>
+                {% else %}
+                rien
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}
