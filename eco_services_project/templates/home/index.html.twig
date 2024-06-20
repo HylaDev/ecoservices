@@ -94,46 +94,36 @@
         <!-- Specifications End -->
     {% elseif app.user.customerRole.name == "Professionnel" %}
         <!--Specifications Start -->
-            <div id="specifications" class="container-fluid py-4">
-                <div class="container py-5">
+            <div id="specifications" class="p-5">
+                <div class="container">
                     <div class="row g-4">
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-4" >
                             <div class=" text-center m-bg-secondary p-4">
-                                <div class="specifications-icon mb-5 mx-auto">
-                                    <i class="text-white fas fa-car-side fa-3x"></i>
+                                <div class="specifications-icon mb-3 mx-auto">
+                                    <i class="text-white fas fa-recycle fa-3x"></i>
                                 </div>
                                 <div class="specifications-content text-white text-center">
                                     <h5>Services</h5>
-                                    <p class="mb-0">Gratuite à partir de 50€ d'achat</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class=" text-center m-bg-secondary p-4">
-                                <div class="specifications-icon mb-5 mx-auto">
-                                    <i class="text-white fas fa-user-shield fa-3x"></i>
-                                </div>
-                                <div class="specifications-content text-white text-center">
-                                    <h5>Produ</h5>
-                                    <p class="mb-0">Payez en toute sécurité en ligne</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class=" text-center m-bg-secondary p-4">
-                                <div class="specifications-icon mb-5 mx-auto">
-                                    <i class="text-white fas fa-exchange-alt fa-3x"></i>
-                                </div>
-                                <div class="specifications-content text-white text-center">
-                                    <h5>Retour sous 30 jours</h5>
-                                    <p class="mb-0">Garantie de paiement de 30 jours</p>
+                                    <p class="mb-0">5% de réduction</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-4">
                             <div class=" text-center m-bg-secondary p-4">
-                                <div class="specifications-icon mb-5 mx-auto">
+                                <div class="specifications-icon mb-3 mx-auto">
+                                    <i class="text-white fas fa-exchange-alt fa-3x"></i>
+                                </div>
+                                <div class="specifications-content text-white text-center">
+                                    <h5>Retour sous 2 jours</h5>
+                                    <p class="mb-0">Recevez votre devis sous 2 jours</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-4">
+                            <div class=" text-center m-bg-secondary p-4">
+                                <div class="specifications-icon mb-3 mx-auto">
                                     <i class="text-white fa fa-phone-alt fa-3x"></i>
                                 </div>
                                 <div class="specifications-content text-white text-center">
@@ -150,10 +140,10 @@
     {% endif %}
 {% else %}
     <div class="container p-3">
-        <h2 class="text-green my-4">Notre Démarche Zéro Déchets</h2>
+        <h2 class="text-green mb-4">Notre Démarche Zéro Déchets</h2>
         <div class="row">
-            <div class="col-md-4 step-hover">
-                <h5 class="text-secon"> 
+            <div class="col-md-4 step-hover my-3">
+                <h5 class=""> 
                     <span>1.</span>
                     Qu'est-ce que la Démarche Zéro Déchets ?
                 </h5>
@@ -164,8 +154,8 @@
                     et compostables, nous pouvons tous contribuer à un avenir plus vert.
                 </p>
             </div>
-            <div class="col-md-4 step-hover">
-                <h5 class="text-secon">
+            <div class="col-md-4 step-hover my-3">
+                <h5 class="">
                     <span>2.</span>
                     Nos Produits Éco-responsables
                 </h5>
@@ -180,8 +170,8 @@
                     </ul> 
                 </p>
             </div>
-            <div class="col-md-4 step-hover">
-                <h5 class="text-secon">
+            <div class="col-md-4 step-hover my-3">
+                <h5 class="">
                     <span>3.</span>
                     Pourquoi Choisir Nos Produits ?
                 </h5>
@@ -199,8 +189,7 @@
                         </li>
                         <li class="text-justify">
                             <span class="fw-bold">Engagement Éthique: </span> 
-                             Nous collaborons avec des fournisseurs respectueux de l'environnement et des artisans 
-                             locaux pour vous offrir des produits éthiques.
+                             Nous collaborons avec des fournisseurs respectueux de l'environnement.
                         </li>
                     </ul>
                 </p>
@@ -210,26 +199,198 @@
     </div>
 {% endif %}
 
-
+{% if app.user %}
+    {% if app.user.customerRole.name == "Particulier" %}
+    <!--Product Start -->
+    <div class="container py-3">
+        <div class=" mx-auto mb-5">
+                <h1 class="">Quelques Produits <span class="text-secon">Eco-Responsables<span></h1>
+                <p>Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Acheter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                {% if app.user %}
+                                    <div class="mb-3">
+                                        <h4 class="text-secon">20 €</h4>
+                                    </div>
+                                    {% endif %}
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Acheter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Acheter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Acheter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Acheter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-4">
+                    <div class="p-4 rounded bg-light">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="h5">Peinture Bio</a>
+                                <div class="d-flex my-3">
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star text-green"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-green"><i class="fa fa-shopping-cart me-2 text-green"></i> Acheter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!--Product End -->
+    {% elseif app.user.customerRole.name == "Professionnel" %}
+    <!-- Service Start -->
+        <div class="container">
+            <h1 class="mb-5">Nos services <span class="text-secon">Eco-Responsables<span></h1>
+            <div class="row g-4 justify-content-center text-white">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="counter m-bg-primary rounded p-5">
+                        <h4>Service 1</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="counter m-bg-primary rounded p-5">
+                        <h4>Service 2</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="counter m-bg-primary rounded p-5">
+                        <h4>Service 3</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="counter m-bg-primary rounded p-5">
+                        <h4>Service 4</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Start -->
+    {% endif %}
+{% else %}
 <!--Particulier Section Start -->
-    <div class="container-fluid py-3 m-bg-secondary text-white">
-        <div class="container py-3">
+    <div class="container h-200  text-white">
+        <div class="">
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-6 m-bg-secondary p-5">
                     <div class="">
-                        <h6 class="text-white">Vous êtes un particulier ?</h6>
-                        <p class="fs-4 text-justify">
+                        <h6 class="text-white">Vous êtes un Particulier...</h6>
+                        <p class="fs-text-justify">
+                            Profitez des produits eco-responsables disponibles pour nos utilisateurs particuliers 
+                            avec des avantages incroyables 🎁!
+                        </p>
+                        <p>Prêt à acheter des produits eco-responsables🚀 ?</p>
+                         <a href="{{ path('app_choice_role') }}" class="btn m-btn-primary px-3"> Inscrivez-vous</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 m-bg-primary p-5">
+                    <div class="">
+                        <h6 class="text-white">Vous êtes un Professionnel...</h6>
+                        <p class="fs-5 text-justify">
                             Profitez des services et produits disponibles pour nos utilisateurs particuliers 
                             avec des avantages incroyables 🎁!
                         </p>
+                         <a href="{{ path('app_choice_role') }}" class="btn m-btn-primary px-3"> Inscrivez-vous</a>
                     </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="">
-                        <p class="text-justify">
-                            Prêt à acheter des produits eco-responsable🚀
-                        </p>
-                        <a href="{{ path('app_choice_role') }}" class="btn border border-primary text-white px-3"> Je m'inscris</a>
+                       
 
                     </div>
                 </div>
@@ -237,32 +398,6 @@
         </div>
     </div>
 <!--Particulier Section End -->
-
-<!--Pro Section Start -->
-    <div class="container-fluid py-3">
-        <div class="container py-3">
-            <div class="row">
-                <div class="col-lg-7">
-                    <div class="">
-                        <h6 class="text-white">Vous êtes un pro ?</h6>
-                        <p class="fs-4 text-justify">
-                            Profitez des services et produits disponibles pour nos utilisateurs pros 
-                            avec des avantages incroyables 🎁!
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="">
-                        <p class="text-justify">
-                            Prêt à acheter de nos services eco-responsable🚀
-                        </p>
-                        <a href="{{ path('app_choice_role') }}" class="btn border border-primary text-green px-3"> Je m'inscris</a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<!--Pro Section End -->
+{% endif %}
 
 {% endblock %}
