@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-#[Route('/service')]
+#[Route('/admin/service')]
 #[IsGranted("ROLE_ADMIN")]
 class ServiceController extends AbstractController
 {

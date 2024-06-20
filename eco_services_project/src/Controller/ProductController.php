@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
-#[Route('/product')]
+#[Route('/admin/product')]
 #[IsGranted("ROLE_ADMIN")]
 class ProductController extends AbstractController
 {

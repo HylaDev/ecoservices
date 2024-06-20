@@ -281,7 +281,15 @@ a{
 #loginForm .formulaire span{
     color: var(--primary-color) !important;
 }
-/*End Form */
+/*** End Form ***/
+/*** Registration Form ***/
+#registration {
+    margin-top: 15%;
+}
+
+
+/*** End Registration Form ***/
+
 
 /* Status choice */
 #role_choice{
