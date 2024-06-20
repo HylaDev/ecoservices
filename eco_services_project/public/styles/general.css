@@ -356,3 +356,8 @@ a{
 #profil{
     margin-top: 15% !important;
 }
+#profil .card{
+    background-color: var(--secondary-color);
+    padding: 2%;
+    color: var(--white-color);
+}
