@@ -1,0 +1,40 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Gestion des status{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5 myd-flex">
+            <h1>Liste des status</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for qr_status in qr_statuses %}
+                    <tr>
+                        <td>{{ qr_status.id }}</td>
+                        <td>{{ qr_status.name }}</td>
+                        <td>
+                            <a href="{{ path('app_qr_status_show', {'id': qr_status.id}) }}">show</a>
+                            <a href="{{ path('app_qr_status_edit', {'id': qr_status.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{{ path('app_qr_status_new') }}">Create new</a>
+
+        </div>
+    </div>
+{% endblock %}

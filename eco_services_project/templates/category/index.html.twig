@@ -14,7 +14,11 @@
                 <a href="{{ path('shop', { 'category_id': category.id }) }}">
                     <div class="text-center category-card m-bg-secondary p-4">
                         <div class=" mb-5 mx-auto">
-                            <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            {% if product.image %}
+                                <img src="{{ asset('assets/img/products/' ~ product.image) }}" class="img-fluid" alt="">
+                            {% else %}
+                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid" alt="">
+                            {% endif %}
                         </div>
                         <div class=" text-white text-center">
                             <h5>{{ category.designation }}</h5>

@@ -27,7 +27,11 @@
                             <tr>
                                 <th scope="row">
                                     <div class="d-flex align-items-center">
-                                        <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                        {% if cart.product.image %}
+                                            <img src="{{ asset('assets/img/products/' ~ cart.product.image) }}" class="img-fluid rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                        {% else %}
+                                            <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                        {% endif %}
                                     </div>
                                 </th>
                                 <td>
