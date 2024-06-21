@@ -4,12 +4,20 @@
 
 {% block content %}
     <div class="content">
-        <div class="container mt-5 myd-flex">
+        <div class="container mt-5">
+            
+            <a href="{{ path('app_service_index') }}" class="mb-3 text-green fs-5">
+                <i class="fa fa-arrow-left"></i>
+                Retour à la page précédente
+            </a>
             <h1>Créer nouveau service</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ include('service/_form.html.twig') }}
+                </div>
+            </div>
+            
 
-            {{ include('service/_form.html.twig') }}
-
-            <a href="{{ path('app_service_index') }}">back to list</a>
                 
         </div>
     </div>

@@ -4,14 +4,18 @@
 
 {% block content %}
     <div class="content">
-        <div class="container mt-5 myd-flex">
+        <div class="container mt-5">
+            <a href="{{ path('app_service_index') }}" class="mb-3 text-green fs-5">
+                <i class="fa fa-arrow-left"></i>
+                Retour à la page précédente
+            </a>
             <h1>Modifier service</h1>
-
-            {{ include('service/_form.html.twig', {'button_label': 'Update'}) }}
-
-            <a href="{{ path('app_service_index') }}">back to list</a>
-
-            {{ include('service/_delete_form.html.twig') }}
+            
+            <div class="row">
+                <div class="col-md-8">
+                    {{ include('service/_form.html.twig', {'button_label': 'Valider'}) }}
+                </div>
+           </div>
         </div>
     </div>
 {% endblock %}

@@ -5,6 +5,9 @@
     --white-color:#ffffff;
     --black-color:#000000;
 }
+.text-green{
+  color:var(--primary-color) !important;
+}
 
 body {
   margin: 0;
@@ -83,4 +86,14 @@ div .contacts p{
     text-align: center;
     float: none;
   }
+}
+ .btn-primary{
+  background-color: var(--primary-color) !important;
+  border: none;
+}
+
+.btn-primary:hover{
+  background-color: transparent !important;
+  border: solid 2px var(--primary-color) !important;
+  color: var(--black-color) !important;
 }

@@ -4,11 +4,15 @@
 
 {% block content %}
     <div class="content">
-        <div class="container mt-5 myd-flex">
-            <h1>Liste des services</h1>
+        <div class="container mt-5">
+            <div class="">
+                <h1>Liste des services</h1>
+                <a href="{{ path('app_service_new') }}" class="btn btn-primary m-3">Ajouter un service</a>
+            </div>
 
-            <table class="table">
-                <thead>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="table-dark">
                     <tr>
                         <th>Id</th>
                         <th>Designation</th>
@@ -23,19 +27,21 @@
                         <td>{{ service.designation }}</td>
                         <td>{{ service.Description }}</td>
                         <td>
-                            <a href="{{ path('app_service_show', {'id': service.id}) }}">show</a>
-                            <a href="{{ path('app_service_edit', {'id': service.id}) }}">edit</a>
+                            <a href="{{ path('app_service_edit', {'id': service.id}) }}">
+                                <i class="fa fa-pencil text-green"></i>
+                            </a>
                         </td>
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="4">no records found</td>
+                        <td colspan="4">Aucun enregistrement trouvé</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
+        </div>
 
-            <a href="{{ path('app_service_new') }}">Create new</a>
+            
                 
         </div>
     </div>

@@ -5,55 +5,62 @@
 {% block content %}
     <div class="content">
         <div class="container mt-5 myd-flex">
-            <h1>Liste des produits</h1>
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Image</th>
-                        <th>Designation</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Categorie</th>
-                        <th>Quantité en stock</th>
-                        <th>actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {% for product in products %}
-                    <tr>
-                        <td>{{ product.id }}</td>
-                        <td>
-                            {% if product.image %}
-                                <img src="{{ asset('assets/img/products/' ~ product.image) }}" class="img-fluid rounded" style="width: 80px; height: 80px;" alt="Image">
+            
+            <div class="">
+                <h1>Liste des produits</h1>
+                <a href="{{ path('app_product_new') }}" class="btn btn-primary m-3">Ajouter un produit</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Image</th>
+                            <th>Designation</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Categorie</th>
+                            <th>Quantité en stock</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.id }}</td>
+                            <td>
+                                {% if product.image %}
+                                    <img src="{{ asset('assets/img/products/' ~ product.image) }}" class="img-fluid rounded" style="width: 80px; height: 40px;" alt="Image">
+                                {% else %}
+                                    <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid rounded" style="width: 80px; height: 40px;" alt="">
+                                {% endif %}
+                            </td>
+                            <td>{{ product.designation }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.description }}</td>
+                            <td>{{ product.category.designation }}</td>
+                            {% if product.stock %}
+                                <td>{{ product.stock.quantity }}</td>
                             {% else %}
-                                <img src="{{ asset('assets/img/num.jpg') }}" class="img-fluid rounded" style="width: 80px; height: 80px;" alt="">
+                                <td>non disponible</td>
                             {% endif %}
-                        </td>
-                        <td>{{ product.designation }}</td>
-                        <td>{{ product.price }}</td>
-                        <td>{{ product.description }}</td>
-                        <td>{{ product.category.designation }}</td>
-                        {% if product.stock %}
-                            <td>{{ product.stock.quantity }}</td>
-                        {% else %}
-                            <td>non disponible</td>
-                        {% endif %}
-                        <td>
-                            <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
-                            <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
-                        </td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="5">no records found</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-
-            <a href="{{ path('app_product_new') }}">Créer Nouveau</a>
+                            <td>
+                                <a href="{{ path('app_product_edit', {'id': product.id}) }}">
+                                    <i class="fa fa-pencil text-green"></i>
+                                </a>
+                                <a href="{{ path('app_product_delete', {'id': product.id}) }}" class="mx-2">
+                                    <i class="fa fa-trash text-green"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Aucun produit ajouté</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 {% endblock %}
