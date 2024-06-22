@@ -22,9 +22,6 @@ class Command
     #[ORM\Column]
     private ?bool $validity = null;
 
-    #[ORM\Column]
-    private ?int $payment_id = null;
-
 
     #[ORM\ManyToOne(inversedBy: 'commands')]
     #[ORM\JoinColumn(nullable: false)]
@@ -35,6 +32,9 @@ class Command
      */
     #[ORM\OneToMany(targetEntity: CommandDetail::class, mappedBy: 'command')]
     private Collection $commandDetails;
+
+    #[ORM\Column]
+    private ?int $total = null;
 
     // #[ORM\ManyToOne(inversedBy: 'commands')]
     // #[ORM\JoinColumn(nullable: false)]
@@ -86,18 +86,6 @@ class Command
         return $this;
     }
 
-    public function getPaymentId(): ?int
-    {
-        return $this->payment_id;
-    }
-
-    public function setPaymentId(int $payment_id): static
-    {
-        $this->payment_id = $payment_id;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, CommandDetail>
      */
@@ -136,6 +124,18 @@ class Command
     public function setCmduser(?Users $cmduser): static
     {
         $this->cmduser = $cmduser;
+
+        return $this;
+    }
+
+    public function getTotal(): ?int
+    {
+        return $this->total;
+    }
+
+    public function setTotal(int $total): static
+    {
+        $this->total = $total;
 
         return $this;
     }

@@ -2,16 +2,21 @@
 namespace App\Service;
 
 use App\Entity\CommandDetail;
+use App\Entity\Command;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Doctrine\ORM\EntityManagerInterface;
+use DateTime;
 
 class CartService
 {
+    private $entityManager;
     private $session;
     private ProductRepository $productRepository;
 
-    public function __construct(RequestStack $requestStack,ProductRepository $productRepository)
+    public function __construct(EntityManagerInterface $entityManager,RequestStack $requestStack,ProductRepository $productRepository)
     {
+        $this->entityManager = $entityManager;
         $this->session = $requestStack->getSession();
         $this->productRepository = $productRepository;
     }
@@ -90,5 +95,31 @@ class CartService
     public function clear(): void
     {
         $this->session->remove('cart');
+    }
+
+    public function submitCart($user): void
+    {
+        $command = new Command();
+        $command->setDate(new DateTime());
+        $command->setTotal($this->getTotal());
+        $command->setCmduser($user);
+        $command->setValidity(true);
+        
+        $this->entityManager->persist($command);
+
+        $carts = $this->session->get('cart', []);
+
+        foreach ($carts as $cart) {
+            $product = $this->productRepository->findOneById($cart->getProduct()->getId());
+            $cartNew = new CommandDetail();
+            $cartNew->setCommand($command);
+            $cartNew->setProduct($product);
+            $cartNew->setQuantity($cart->getQuantity());
+            $cartNew->setPrice($cart->getPrice());
+            $cartNew->setTotal($cart->getTotal());
+            $this->entityManager->persist($cartNew);
+        }
+
+        $this->entityManager->flush();
     }
 }

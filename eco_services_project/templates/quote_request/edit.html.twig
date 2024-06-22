@@ -1,0 +1,41 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Modifier Demande{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5">
+            <a href="{{ path('app_quote_request_index') }}" class="mb-3 text-green fs-5">
+                <i class="fa fa-arrow-left"></i>
+                Retour à la page précédente
+            </a>
+            <h1>Modifier Demande</h1>
+            <h3>Détails de la Demande de {{ quote_request.qrUser.lastname }}</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Service</th>
+                            <th>Poids estimés</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for detail in details %}
+                        <tr>
+                            <td>{{ detail.service.designation }}</td>
+                            <td>{{ detail.estimatedWeight }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    {{ include('quote_request/_form.html.twig', {'button_label': 'Update'}) }}
+                </div>
+           </div>
+        </div>
+    </div>
+
+{% endblock %}

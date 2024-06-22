@@ -43,7 +43,7 @@ class RequestService
         $reqDetail[] = $newReqDetail;
         $this->session->set('reqDetail', $reqDetail);
     }
-    public function upTime(int $serviceId, int $quantity): void
+    public function update(int $serviceId, int $quantity): void
     {
         $reqDetail = $this->session->get('reqDetail', []);
         $service = $this->serviceRepository->findOneById($serviceId);

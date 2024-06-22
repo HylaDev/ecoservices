@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block content %}
+
+<div class="container" id="profil">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Service</th>
+                    <th>Poids Estimé</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for request_detail in request_details %}
+                <tr>
+                    <td>{{ request_detail.service.designation }}</td>
+                    <td>{{ request_detail.estimatedWeight }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

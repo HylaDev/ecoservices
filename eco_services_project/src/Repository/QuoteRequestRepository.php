@@ -26,6 +26,16 @@ class QuoteRequestRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findOneById($value): ?QuoteRequest
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     //    /**
     //     * @return QuoteRequest[] Returns an array of QuoteRequest objects
     //     */

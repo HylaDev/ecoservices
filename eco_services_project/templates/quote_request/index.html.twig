@@ -1,0 +1,56 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Gestion des demande{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5 myd-flex">
+            
+            <div class="">
+                <h1>Liste des demandes</h1>
+            </div>
+
+            
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Entreprise</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Comment</th>
+                            <th>Status</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for quote_request in quote_requests %}
+                        <tr>
+                            <td>{{ quote_request.id }}</td>
+                            <td>{{ quote_request.qrUser.lastname }}</td>
+                            <td>{{ quote_request.date ? quote_request.date|date('Y-m-d') : '' }}</td>
+                            <td>{{ quote_request.total }}</td>
+                            <td>{{ quote_request.comment }}</td>
+                            <td>{{ quote_request.status.name }}</td>
+                            <td>
+                                <a href="{{ path('app_quote_request_edit', {'id': quote_request.id}) }}">
+                                    <i class="fa fa-pencil text-green"></i>
+                                </a>
+                                <a href="{{ path('app_quote_request_delete', {'id': quote_request.id}) }}" class="mx-2">
+                                    <i class="fa fa-trash text-green"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

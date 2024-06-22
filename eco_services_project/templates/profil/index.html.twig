@@ -26,11 +26,53 @@
                         <div class="">
                             <h2>Mes commandes</h2>
                         </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Total</th>
+                                        <th>actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for command in commands %}
+                                    <tr>
+                                        <td>{{ command.date ? command.date|date('Y-m-d') : '' }}</td>
+                                        <td>{{ command.total }}</td>
+                                        <td><a href="{{ path('show_detail_command', { 'command_id': command.id}) }}">Détails</a></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 {% elseif app.user.customerRole.name == 'Professionnel'%}
                     <div class="card border-0 p-4 my-2">
                         <div class="">
                             <h2>Mes demandes de devis</h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for request in requests %}
+                                    <tr>
+                                        <td>{{ request.date ? request.date|date('Y-m-d') : '' }}</td>
+                                        <td>{{ request.total }}</td>
+                                        <td>{{ request.status.name }}</td>
+                                        <td><a href="{{ path('show_detail_request', { 'request_id': request.id}) }}">Détails</a></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 {% else %}
