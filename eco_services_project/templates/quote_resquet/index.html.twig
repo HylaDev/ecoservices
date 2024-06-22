@@ -20,48 +20,59 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <p class="mb-0 mt-4">Recyclage</p>
-                            </td>
-                            <td>
-                                <div class="input-group quantity mt-4" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <a href="" class="btn btn-sm btn-minus rounded-circle bg-light border" >
-                                        <i class="fa fa-minus"></i>
-                                        </a>
+                        {% for request in requests %}
+                            <tr>
+                                <td>
+                                    <p class="mb-0 mt-4">{{ request.service.designation }}</p>
+                                </td>
+                                <td>
+                                    <div class="input-group estimatedWeight mt-4" style="width: 100px;">
+                                        <div class="input-group-btn">
+                                            <a href="{{ path('update_request', { 'service_id': request.service.id, 'manus':true }) }}" class="btn btn-sm btn-minus rounded-circle bg-light border" >
+                                            <i class="fa fa-minus"></i>
+                                            </a>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm text-center border-0" value="{{ request.estimatedWeight }}">
+                                        <div class="input-group-btn">
+                                            <a href="{{ path('update_request', { 'service_id': request.service.id, 'manus':false }) }}" class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                                <i class="fa fa-plus"></i>
+                                            </a>
+                                        </div>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm text-center border-0" value="0">
-                                    <div class="input-group-btn">
-                                        <a href="" class="btn btn-sm btn-plus rounded-circle bg-light border">
-                                            <i class="fa fa-plus"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <a href="" class="btn btn-md rounded-circle bg-light border mt-4" >
-                                    <i class="fa fa-times text-danger"></i>
+                                </td>
+                                <td>
+                                    <a href="{{ path('remove_to_request', { 'service_id': request.service.id }) }}" class="btn btn-md rounded-circle bg-light border mt-4" >
+                                        <i class="fa fa-times text-danger"></i>
+                                        
+                                    </a>
                                     
-                                </a>
-                                
-                            </td>
-                        
-                        </tr>
+                                </td>
+                            
+                            </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
          <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
             <div class="bg-light rounded">
-                <div class="p-4">
-                    <div class="form-group">
-                        <label for="">Commentaire <span class="text-danger">*</span></label>
-                        <textarea class="form-control" placeholder="Laissez-nous plus de détails" id="" rows="3"></textarea>
+                {% for label, messages in app.flashes %}
+                    <div class="alert alert-{{ label }}">
+                        {% for message in messages %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
                     </div>
-                </div>
-                
-                <a href="{{ path('app_checkout') }}" class="btn border-secondary px-4 py-3 text-primary mb-4 ms-4" type="button">Soumettre demande</a>
+                {% endfor %}
+                <form action="{{ path('send_request') }}" method="POST">
+                    <div class="p-4">
+                        <div class="form-group">
+                            <label for="">Commentaire <span class="text-danger">*</span></label>
+                            <textarea name="comment" class="form-control" placeholder="Laissez-nous plus de détails" id="" rows="3"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button class="btn border-secondary px-4 py-3 text-primary mb-4 ms-4" type="submit">Soumettre demande</button>
+                </form>
             </div>
         </div>
     </div>
