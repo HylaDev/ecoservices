@@ -19,11 +19,11 @@ class MailerService
             ->from('ernestdossa.9@gmail.com')
             ->to($toEmail)
             ->subject('Bienvenue chez EcoService')
-            ->text('Cher' .$lastname . 'nous vous souhaitons la bienvenue! 
+            ->text('Cher ' .$lastname . ' nous vous souhaitons la bienvenue! 
                     Nous sommes ravis de vous compter parmi nos 
                     clients et nous tenons à vous remercier pour votre inscription.')
             ->html(
-                'Cher' .$lastname . 'nous vous souhaitons la bienvenue! 
+                'Cher ' .$lastname . ' nous vous souhaitons la bienvenue! 
                     Nous sommes ravis de vous compter parmi nos 
                     clients et nous tenons à vous remercier pour votre inscription.'
             );

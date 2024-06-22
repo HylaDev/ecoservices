@@ -9,6 +9,7 @@
     </div>
     
     <div class="row g-4 justify-content-end">
+        {% if carts %}
         <div class="col-8">
             <div class="table-responsive">
                 <table class="table">
@@ -23,7 +24,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
                         {% for cart in carts %}
+                            
                             <tr>
                                 <th scope="row">
                                     <div class="d-flex align-items-center">
@@ -67,6 +70,7 @@
                                 </td>
                             
                             </tr>
+                            
                         {% endfor %}
                     </tbody>
                 </table>
@@ -94,6 +98,9 @@
                 <a href="{{ path('app_checkout') }}" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Procéder au paiement</a>
             </div>
         </div>
+        {% else %}
+            <p>Votre panier est vide.</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

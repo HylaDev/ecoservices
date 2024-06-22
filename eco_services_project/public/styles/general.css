@@ -9,6 +9,7 @@
 body{
     font-family: "MuseoModerno", sans-serif;
 }
+
 a{
     text-decoration: none;
 }
@@ -377,4 +378,16 @@ a{
 /*** Service catalogue ***/
 #catalogue_service{
     margin-top: 15% !important;
+}
+
+/**Footer**/
+ul li {
+    list-style: none;
+}
+ul li a{
+    color: var(--white-color);
+}
+ul li a:hover{
+    color: var(--secondary-color);
+    transition: 0.5s;
 }

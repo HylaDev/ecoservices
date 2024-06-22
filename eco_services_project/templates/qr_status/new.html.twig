@@ -4,13 +4,20 @@
 
 {% block content %}
     <div class="content">
-        <div class="container mt-5 myd-flex">
+        <div class="container mt-5">
+            
+            <a href="{{ path('app_qr_status_index') }}" class="mb-3 text-green fs-5">
+                <i class="fa fa-arrow-left"></i>
+                Retour à la liste
+            </a>
             <h1>Créer nouveau statut</h1>
-
-            {{ include('qr_status/_form.html.twig') }}
-
-            <a href="{{ path('app_qr_status_index') }}">back to list</a>
-                
+            
+            <div class="row">
+                <div class="col-md-6">
+                    {{ include('qr_status/_form.html.twig') }}
+                </div>
+            </div>
+                            
         </div>
     </div>
 {% endblock %}
