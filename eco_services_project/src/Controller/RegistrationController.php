@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\MailerService;
 use App\Repository\CustomerRoleRepository;
 use App\Entity\Users;
 use App\Form\RegistrationFormType;
@@ -18,7 +19,9 @@ use Symfony\Component\Routing\Attribute\Route;
 class RegistrationController extends AbstractController
 {
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager, CustomerRoleRepository $customerRoleRepository): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, 
+                            Security $security, EntityManagerInterface $entityManager, 
+                            CustomerRoleRepository $customerRoleRepository, MailerService $mailerService): Response
     {
         $role_id = $request->query->getInt('role_id');
         $user = new Users();
@@ -41,7 +44,8 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // do anything else you need here, like send an email
+            // Send email
+            $mailerService->sendRegistrationEmail($user->getEmail(), $user->getLastname());
 
             return $security->login($user, UsersAuthenticator::class, 'main');
         }
