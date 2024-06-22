@@ -4,12 +4,19 @@
 
 {% block content %}
     <div class="content">
-        <div class="container mt-5 myd-flex">
+        <div class="container mt-5">
+            <a href="{{ path('app_product_index') }}" class="mb-3 text-green fs-5">
+                <i class="fa fa-arrow-left"></i>
+                Retour à la liste
+            </a>
             <h1>Créer nouveau produit</h1>
+            
+            <div class="row">
+                <div class="col-md-8">
+                    {{ include('product/_form.html.twig') }}
+                </div>
+            </div>
 
-            {{ include('product/_form.html.twig') }}
-
-            <a href="{{ path('app_product_index') }}">back to list</a>
         </div>
     </div>
 {% endblock %}

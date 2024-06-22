@@ -123,30 +123,58 @@
         <div class="container-fluid m-bg-primary text-white-50 footer pt-5 mt-5">
             <div class="container py-5">
                 <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="footer-item">
-                            <h4 class="text-light mb-3">Eco Service</h4>
-                            <p class="mb-4">lorem lorem lorem</p>
+                            <a href="{{ path('home') }}" class="navbar-band">
+                                <img src="{{ asset('assets/img/logo-wb.png') }}" width="150px" class="img-fluid" alt="">
+                            </a>
+                            <p class="my-4 text-white">Ensemble, protegeons l'environnement.</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Boutique</h4>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="">
+                            <h4 class="text-light mb-3">Liens Utiles</h4>
+                            {% if app.user %}
+                            {% if app.user.customerRole.name == 'Particulier'%}
+                            <ul>
+                                <li><a href=""><i class="fa fa-chevron-right"> </i> Boutique</a></li>
+                                <li><a href=""><i class="fa fa-chevron-right"> </i> Catégories Produits</a></li>
+                                <li><a href=""><i class="fa fa-chevron-right"> </i> Politique Privées</a></li>
+                                <li><a href=""><i class="fa fa-chevron-right"> </i> Mentions Légales</a></li>
+                            </ul>
+                            {% elseif app.user.customerRole.name == 'Professionnel'%}
+
+                            <ul>
+                                <li><a href=""><i class="fa fa-chevron-right"> </i> Catalogue Services</a></li>
+                                <li><a href=""><i class="fa fa-chevron-right"> </i> Politique Privés</a></li>
+                                <li><a href=""><i class="fa fa-chevron-right"> </i> Mentions Légales</a></li>
+                            </ul>
+                            
+                            
+                            {% endif %}
+                            {% else %}
+                            <ul>
+                                <li><a href=""><i class="fa fa-chevron-right"> </i> Politique Privés</a></li>
+                                <li><a href=""><i class="fa fa-chevron-right"> </i> Mentions Légales</a></li>
+                            </ul>
+                            {% endif %}
+
+                            
                             
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="d-flex flex-column text-start footer-item">
-                            <h4 class="text-light mb-3">Informations</h4>
-                            
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
+
+                    <div class="col-lg-4 col-md-6">
                         <div class="footer-item">
                             <h4 class="text-light mb-3">Contact</h4>
-                            <p>lorem</p>
-
-                            <img src="img/payment.png" class="img-fluid" alt="">
+                            <div class="me-3">
+                                <i class="text-white fas fa-map-marker-alt me-2 text-secondary"></i> 
+                                <a href="#" class="text-white">2 rue toto, 45140 Orléans, France</a>
+                            </div>
+                            <div class="me-3">
+                                <i class="text-white fas fa-envelope me-2 text-secondary"></i>
+                                <a href="#" class="text-white">Email@Example.com</a>
+                            </div>
                         </div>
                     </div>
                 </div>
