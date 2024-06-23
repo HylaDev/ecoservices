@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\QuoteRequest;
 use App\Form\QuoteRequestType;
+use App\Service\MailerService;
 use App\Repository\QuoteRequestRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -51,13 +52,21 @@ class QuoteRequestController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_quote_request_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, QuoteRequest $quoteRequest, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, QuoteRequest $quoteRequest, EntityManagerInterface $entityManager, MailerService $mailerService): Response
     {
         $form = $this->createForm(QuoteRequestType::class, $quoteRequest);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $oldStatus = $quoteRequest->getStatus()->getName();
+
             $entityManager->flush();
+
+            $data = $form->getData();
+            $selectedStatus = $data->getStatus();
+
+            $useremail = $quoteRequest->getQrUser()->getEmail();
+            $mailerService->updateQuoteRequestEmail($useremail);
 
             return $this->redirectToRoute('app_quote_request_index', [], Response::HTTP_SEE_OTHER);
         }
