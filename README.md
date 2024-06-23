@@ -20,6 +20,11 @@
 
     symfony console doctrine:migrations:migrate
 
+# Créer un utilisateur admin
+    Exemple de création d'un compte admin avec les identifiants suivants: email: admin@admin.com, mot de passe:  mypassword123.
+    
+    symfony console app:create-admin admin@admin.com mypassword123
+
 # Exécution de l'application
     symfony server:start
 
