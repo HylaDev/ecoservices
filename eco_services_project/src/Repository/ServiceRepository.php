@@ -27,6 +27,13 @@ class ServiceRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findAll(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->getQuery()
+            ->getResult();
+    }
+
     //    /**
     //     * @return Service[] Returns an array of Service objects
     //     */

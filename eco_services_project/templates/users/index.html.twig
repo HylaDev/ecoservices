@@ -1,0 +1,58 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Gestion des utilisateusrs{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5">
+            
+            <div class="">
+                <h1>Liste des utilisateusrs</h1>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>Roles</th>
+                            <th>Lastname</th>
+                            <th>Firstname</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Siren</th>
+                            <th>RoleClient</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                          
+                            <td>{{ user.lastname }}</td>
+                            <td>{{ user.firstname }}</td>
+                            <td>{{ user.phone }}</td>
+                            <td>{{ user.address }}</td>
+                            <td>{{ user.siren }}</td>
+                            {% if user.customerRole %}
+                                <td>
+                                    {{ user.customerRole.name }}
+                                </td>
+                            {% else %}
+                                <td>Non client</td>
+                            {% endif %}
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="10">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
