@@ -12,10 +12,12 @@
 
 # Migrations
 
-1. Créer le fichier de migration
+1. Créer le fichier de migration:
+
     symfony console make:migration
 
-2. Migrer les tables
+2. Migrer les tables:
+
     symfony console doctrine:migrations:migrate
 
 # Exécution de l'application
