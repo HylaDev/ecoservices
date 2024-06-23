@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="content">
-        <div class="container mt-5 myd-flex">
+        <div class="container mt-5">
             
             <div class="">
                 <h1>Liste des commandes</h1>
@@ -14,7 +14,7 @@
                 <table class="table table-bordered">
                     <thead class="table-dark">
                         <tr>
-                            <th>Id</th>
+                            <th>Client</th>
                             <th>Date</th>
                             <th>Validity</th>
                             <th>Total</th>
@@ -24,17 +24,17 @@
                     <tbody>
                     {% for command in commands %}
                         <tr>
-                            <td>{{ command.id }}</td>
+                            <td>{{ command.cmduser.email }}</td>
                             <td>{{ command.date ? command.date|date('Y-m-d H:i:s') : '' }}</td>
-                            <td>{{ command.validity ? 'Yes' : 'No' }}</td>
-                            <td>{{ command.total }}</td>
-                            <td>
-                                <a href="{{ path('app_command_show', {'id': command.id}) }}">Détails</a>
+                            <td>{{ command.validity ? 'Oui' : 'Non' }}</td>
+                            <td>{{ command.total }} €</td>
+                            <td> 
+                                <a href="{{ path('app_command_show', {'id': command.id}) }}"><i class="fa fa-eye text-green"></i></a>
                             </td>
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="5">no records found</td>
+                            <td colspan="5">Aucunes commandes</td>
                         </tr>
                     {% endfor %}
                     </tbody>

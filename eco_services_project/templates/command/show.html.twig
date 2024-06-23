@@ -7,7 +7,7 @@
         <div class="container mt-5">
             <a href="{{ path('app_command_index') }}" class="mb-3 text-green fs-5">
                 <i class="fa fa-arrow-left"></i>
-                Retour à la page précédente
+                Retour à la liste
             </a>
             <h3>Détails de la Commande de {{ command.cmdUser.email }}</h3>
             <div class="table-responsive">
@@ -25,13 +25,13 @@
                         <tr>
                             <td>{{ command_detail.product.designation }}</td>
                             <td>{{ command_detail.quantity }}</td>
-                            <td>{{ command_detail.price }}</td>
-                            <td>{{ command_detail.total }}</td>
+                            <td>{{ command_detail.price }} €</td>
+                            <td>{{ command_detail.total }} €</td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-                <p>Total de la commande : {{ command.total }} </p>
+                <p>Total de la commande : {{ command.total }} €</p>
             </div>
         </div>
     </div>

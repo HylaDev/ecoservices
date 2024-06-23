@@ -7,16 +7,14 @@
         <div class="container mt-5">
             
             <div class="">
-                <h1>Liste des utilisateusrs</h1>
+                <h1>Liste des utilisateurs</h1>
             </div>
 
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="table-dark">
                         <tr>
-                            <th>Id</th>
                             <th>Email</th>
-                            <th>Roles</th>
                             <th>Lastname</th>
                             <th>Firstname</th>
                             <th>Phone</th>
@@ -28,10 +26,7 @@
                     <tbody>
                     {% for user in users %}
                         <tr>
-                            <td>{{ user.id }}</td>
-                            <td>{{ user.email }}</td>
-                            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                          
+                            <td>{{ user.email }}</td>                          
                             <td>{{ user.lastname }}</td>
                             <td>{{ user.firstname }}</td>
                             <td>{{ user.phone }}</td>
@@ -42,12 +37,12 @@
                                     {{ user.customerRole.name }}
                                 </td>
                             {% else %}
-                                <td>Non client</td>
+                                <td>Admin</td>
                             {% endif %}
                         </tr>
                     {% else %}
                         <tr>
-                            <td colspan="10">no records found</td>
+                            <td colspan="10">Aucun utilisateur</td>
                         </tr>
                     {% endfor %}
                     </tbody>

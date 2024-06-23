@@ -36,7 +36,7 @@ class MailerService
         $email = (new Email())
             ->from('ernestdossa.9@gmail.com')
             ->to($toEmail)
-            ->subject('Demande de devis envoyée')
+            ->subject('Confirmation Demande de devis')
             ->text('Nous avons bien reçu votre demande de devis et nous vous remercions 
                     de l\'intérêt que vous portez à Eco-Services
                     Notre équipe étudie actuellement votre demande avec attention et 

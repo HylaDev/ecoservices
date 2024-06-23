@@ -14,7 +14,6 @@
                 <table class="table table-bordered">
                     <thead class="table-dark">
                         <tr>
-                            <th>Id</th>
                             <th>Image</th>
                             <th>Designation</th>
                             <th>Price</th>
@@ -27,7 +26,6 @@
                     <tbody>
                     {% for product in products %}
                         <tr>
-                            <td>{{ product.id }}</td>
                             <td>
                                 {% if product.image %}
                                     <img src="{{ asset('assets/img/products/' ~ product.image) }}" class="img-fluid rounded" style="width: 80px; height: 40px;" alt="Image">
@@ -44,14 +42,14 @@
                             {% else %}
                                 <td>non disponible</td>
                             {% endif %}
-                            <td>
-                                <a href="{{ path('app_product_edit', {'id': product.id}) }}">
+                            <td class="d-flex">
+                                <a class="mt-2" href="{{ path('app_product_edit', {'id': product.id}) }}">
                                     <i class="fa fa-pencil text-green"></i>
                                 </a>
-                                <a href="{{ path('app_product_delete', {'id': product.id}) }}" class="mx-2">
-                                    <i class="fa fa-trash text-green"></i>
+                                <a href="">
+                                    {{ include('product/_delete_form.html.twig') }}
                                 </a>
-                            </td>
+                            </td> 
                         </tr>
                     {% else %}
                         <tr>

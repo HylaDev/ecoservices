@@ -15,19 +15,17 @@
                 <table class="table table-bordered">
                     <thead class="table-dark">
                         <tr>
-                            <th>Id</th>
                             <th>Entreprise</th>
                             <th>Date</th>
                             <th>Total</th>
                             <th>Comment</th>
                             <th>Status</th>
-                            <th>actions</th>
+                            <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
                     {% for quote_request in quote_requests %}
                         <tr>
-                            <td>{{ quote_request.id }}</td>
                             <td>{{ quote_request.qrUser.lastname }}</td>
                             <td>{{ quote_request.date ? quote_request.date|date('Y-m-d') : '' }}</td>
                             <td>{{ quote_request.total }}</td>
