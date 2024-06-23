@@ -1,0 +1,45 @@
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Liste des commandes{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container mt-5">
+            
+            <div class="">
+                <h1>Liste des commandes</h1>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Client</th>
+                            <th>Date</th>
+                            <th>Validity</th>
+                            <th>Total</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for command in commands %}
+                        <tr>
+                            <td>{{ command.cmduser.email }}</td>
+                            <td>{{ command.date ? command.date|date('Y-m-d H:i:s') : '' }}</td>
+                            <td>{{ command.validity ? 'Oui' : 'Non' }}</td>
+                            <td>{{ command.total }} €</td>
+                            <td> 
+                                <a href="{{ path('app_command_show', {'id': command.id}) }}"><i class="fa fa-eye text-green"></i></a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Aucunes commandes</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

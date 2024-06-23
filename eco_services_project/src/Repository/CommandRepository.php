@@ -16,6 +16,26 @@ class CommandRepository extends ServiceEntityRepository
         parent::__construct($registry, Command::class);
     }
 
+    public function findByUserId($value): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.cmduser = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findOneById($value): ?Command
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     //    /**
     //     * @return Command[] Returns an array of Command objects
     //     */

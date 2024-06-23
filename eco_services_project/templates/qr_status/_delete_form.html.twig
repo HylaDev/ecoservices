@@ -1,4 +1,4 @@
 <form method="post" action="{{ path('app_qr_status_delete', {'id': qr_status.id}) }}" onsubmit="return confirm('êtes-vous sûr de vouloir continuer?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ qr_status.id) }}">
-    <button class="btn text-danger border border-danger">Supprimer</button>
+    <button class="btn text-danger"><i class="fa fa-trash mx-2 text-danger"></i></button>
 </form>

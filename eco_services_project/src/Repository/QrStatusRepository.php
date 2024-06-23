@@ -16,6 +16,16 @@ class QrStatusRepository extends ServiceEntityRepository
         parent::__construct($registry, QrStatus::class);
     }
 
+    public function findOneByName($value): ?QrStatus
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.name = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     //    /**
     //     * @return QrStatus[] Returns an array of QrStatus objects
     //     */

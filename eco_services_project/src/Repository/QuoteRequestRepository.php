@@ -16,6 +16,26 @@ class QuoteRequestRepository extends ServiceEntityRepository
         parent::__construct($registry, QuoteRequest::class);
     }
 
+    public function findByUserId($value): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.qruser = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findOneById($value): ?QuoteRequest
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
     //    /**
     //     * @return QuoteRequest[] Returns an array of QuoteRequest objects
     //     */

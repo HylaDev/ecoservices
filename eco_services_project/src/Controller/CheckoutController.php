@@ -31,8 +31,11 @@ class CheckoutController extends AbstractController
             return new Response($content, 403);
         }
         $carts = $this->cartService->getCart();
+        $total = $this->cartService->getTotal();
         return $this->render('checkout/index.html.twig', [
             'carts' => $carts,
+            'total' => $total,
+            'user' => $user,
             'controller_name' => 'CheckoutController',
         ]);
     }

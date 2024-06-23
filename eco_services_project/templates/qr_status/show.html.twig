@@ -5,26 +5,26 @@
 {% block content %}
     <div class="content">
         <div class="container mt-5">
-            <h1>Status</h1>
+            <a href="{{ path('app_quote_request_index') }}" class="mb-3 text-green fs-5">
+                <i class="fa fa-arrow-left"></i>
+                Retour à la page précédente
+            </a>
+            <h1>Détails</h1>
 
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>Id</th>
-                        <td>{{ qr_status.id }}</td>
-                    </tr>
-                    <tr>
-                        <th>Name</th>
-                        <td>{{ qr_status.name }}</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <a href="{{ path('app_qr_status_index') }}">back to list</a>
-
-            <a href="{{ path('app_qr_status_edit', {'id': qr_status.id}) }}">edit</a>
-
-            {{ include('qr_status/_delete_form.html.twig') }}
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ qr_status.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ qr_status.name }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     </div>

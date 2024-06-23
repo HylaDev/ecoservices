@@ -15,6 +15,10 @@ class HomeController extends AbstractController
     {
         $service = $serviceRepo->findAll();
 
+        if($this->getUser() and !$this->getUser()->getCustomerRole()){
+            return $this->redirectToRoute('app_product_index');
+        }
+
         return $this->render('home/index.html.twig', [
             'services' => $service,
             'products' => $productRepo->findLimit6(),

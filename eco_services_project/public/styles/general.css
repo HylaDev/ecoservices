@@ -334,8 +334,13 @@ a{
     #role_choice{
         margin-top: 30% !important;
     }
+    #paiement{
+        margin-top: 30% !important;
+    }
 }
-
+#paiement{
+    margin-top: 15%;
+}
 /*** Product Details Start ***/
 #detailsProduit
 {
