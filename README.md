@@ -22,17 +22,16 @@
 
 # Créer un utilisateur admin
     Exemple de création d'un compte admin avec les identifiants suivants: email: admin@admin.com, mot de passe:  mypassword123.
-    
+
     symfony console app:create-admin admin@admin.com mypassword123
 
+# Initialisation des données de base dans la base de données
+
+    symfony console doctrine:fixtures:load
+
 # Exécution de l'application
+
     symfony server:start
 
 L'application sera accessible sur http://localhost:8000.
-
-# Données de test
-
-
-
-
     
