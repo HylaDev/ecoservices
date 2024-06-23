@@ -27,8 +27,8 @@
                             <h2>Mes commandes</h2>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead class="table-dark">
+                            <table class="table">
+                                <thead class="table-light">
                                     <tr>
                                         <th>Date</th>
                                         <th>Total</th>
@@ -40,7 +40,11 @@
                                     <tr>
                                         <td>{{ command.date ? command.date|date('Y-m-d') : '' }}</td>
                                         <td>{{ command.total }}</td>
-                                        <td><a href="{{ path('show_detail_command', { 'command_id': command.id}) }}">Détails</a></td>
+                                        <td>
+                                            <a href="{{ path('show_detail_command', { 'command_id': command.id}) }}">
+                                                <i class="fa fa-eye text-green"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
@@ -53,13 +57,13 @@
                             <h2>Mes demandes de devis</h2>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead class="table-dark">
+                            <table class="table">
+                                <thead class="table-light">
                                     <tr>
                                         <th>Date</th>
                                         <th>Total</th>
-                                        <th>Status</th>
-                                        <th>actions</th>
+                                        <th>Statut</th>
+                                        <th>action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,7 +72,7 @@
                                         <td>{{ request.date ? request.date|date('Y-m-d') : '' }}</td>
                                         <td>{{ request.total }}</td>
                                         <td>{{ request.status.name }}</td>
-                                        <td><a href="{{ path('show_detail_request', { 'request_id': request.id}) }}">Détails</a></td>
+                                        <td><a href="{{ path('show_detail_request', { 'request_id': request.id}) }}"><i class="fa fa-eye text-green"></i></a></td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>

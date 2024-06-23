@@ -82,20 +82,20 @@
                     <h1 class="display-6 mb-4">Total <span class="fw-normal">Panier</span></h1>
                     <div class="d-flex justify-content-between mb-4">
                         <h5 class="mb-0 me-4">Sous-Total:</h5>
-                        <p class="mb-0">{{ subtotal }}</p>
+                        <p class="mb-0">{{ subtotal }} €</p>
                     </div>
                     <div class="d-flex justify-content-between">
                         <h5 class="mb-0 me-4">Livraison</h5>
                         <div class="">
-                            <p class="mb-0">0</p>
+                            <p class="mb-0">0 €</p>
                         </div>
                     </div>
                 </div>
                 <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                     <h5 class="mb-0 ps-4 me-4">Total</h5>
-                    <p class="mb-0 pe-4">{{ subtotal }}</p>
+                    <p class="mb-0 pe-4">{{ subtotal }} €</p>
                 </div>
-                <a href="{{ path('app_checkout') }}" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">Procéder au paiement</a>
+                <a href="{{ path('app_checkout') }}" class="btn m-bg-primary px-4 py-3 text-white mb-4 ms-4" type="button">Valider la commande</a>
             </div>
         </div>
         {% else %}

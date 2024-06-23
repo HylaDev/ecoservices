@@ -3,13 +3,17 @@
 {% block title %}Panier{% endblock %}
 
 {% block content %}
-<div class="container" id="cart">
+<div class="container" id="paiement">
     <form id="payment-form">
-        <input type="text" id="cardholder-name" placeholder="Cardholder's name">
-        <div id="card-element"></div>
-        <button id="card-button" type="submit" data-secret="{{ client_secret }}">
-            Pay
-        </button>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control p-3" id="cardholder-name" placeholder="Nom sur la carte">
+                <div id="card-element" class="form-control my-3 p-3"></div>
+                <button id="card-button" class="border text-white w-50 p-2 m-bg-primary" type="submit" data-secret="{{ client_secret }}">
+                    Payer
+                </button>
+            </div>
+        </div>
     </form>
     <script src="https://js.stripe.com/v3/"></script>
     <script>
@@ -41,5 +45,6 @@
             }
         });
     </script>
+
 </div>
 {% endblock %}
