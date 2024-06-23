@@ -8,6 +8,7 @@ use App\Entity\CustomerRole;
 use App\Entity\ProductCategory;
 use App\Repository\ProductCategoryRepository;
 use App\Entity\Product;
+use App\Entity\QrStatus;
 
 class MyFixtures extends Fixture
 {
@@ -30,6 +31,18 @@ class MyFixtures extends Fixture
             $role->setName($name);
             $manager->persist($role);
         }
+
+        $statusNames = [
+             'En cours',
+             'Validé',
+             'Rejeté'
+         ];
+ 
+         foreach ($statusNames as $name) {
+             $status = new QrStatus();
+             $status->setName($name);
+             $manager->persist($status);
+         }
 
         $categoryNames = [
             'Electroniques',
