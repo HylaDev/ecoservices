@@ -1,0 +1,12 @@
+name: Exécution des tests unitaires - Branche de features
+
+on:
+  push:
+    branches: ["doscod","test"]
+
+jobs:
+  test-unitaires:
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: echo "Hello"
